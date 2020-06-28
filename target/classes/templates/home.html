@@ -1,15 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="../static/style.css">
-        <title>Bootstrap Example</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    </head>
+    <title>Spring Boot Thymeleaf + Spring Security</title>
+    <div th:replace="fragments/header :: header-css"/>
+</head>
 <body>
-</body>
+<div th:replace="fragments/header :: header"/>
+<div class="container">
+    <div class="starter-template">
+        <h1>Spring Boot Web Thymeleaf + Spring Security</h1>
+        <h2 sec:authorize="hasAuthority('ADMIN')">1. Visit <a th:href="@{/admin/example}">Admin page (Spring Security protected, Need Admin Role)</a></h2>
+        <h2 sec:authorize="hasAuthority('USER')">2. Visit <a th:href="@{/}">User page (Spring Security protected, Need User Role)</a></h2>
+        <h2>3. Visit <a th:href="@{/users}">Users page</a></h2>
+    </div>
+</div>
+<!-- /.container -->
 
+</body>
 </html>
