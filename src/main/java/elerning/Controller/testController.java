@@ -12,4 +12,10 @@ public class testController {
 
         return "login";
     }
+
+    @RequestMapping("/header")
+    private String header(){
+
+        return "header.html";
+    }
 }
