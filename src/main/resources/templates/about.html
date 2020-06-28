@@ -1,32 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>About</title>
-    <style type="text/css">
-        .block{
-            text-align: center;
-            font-family: Calibri;
-            color: white;
-            background-color: black;
-            border-style: solid;
-            margin: auto;
-        }
-        .history{
-            text-align: justify;
-            color: white;
-            font-family: Calibri;
-            background-color: black;
-            border-style: solid;
-            margin: auto;
-        }
-    </style>
-    <div class="block">About</div>
-    <div class="history">
-        Projekt w trakcie budowy...
-    </div>
+    <title>eLearning - o witrynie </title>
+    <div th:replace="fragments/header :: header-css"/>
 </head>
 <body>
-
+<div th:replace="fragments/header :: header"/>
+<h1>e-Learning</h1>
 </body>
 </html>
