@@ -7,7 +7,7 @@
         <packaging>war</packaging>
       </options>
     </properties>
-    <root id="archive" name="E-lerning-0.0.1-SNAPSHOT.war">
+    <root id="archive" name="elerning-0.0.1-SNAPSHOT.war">
       <element id="artifact" artifact-name="elerning:war exploded" />
     </root>
   </artifact>
