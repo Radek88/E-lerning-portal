@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: org.springframework.boot:spring-boot-test:2.4.0-SNAPSHOT">
     <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-test/2.4.0-SNAPSHOT/spring-boot-test-2.4.0-20200627.084519-133.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-test/2.4.0-SNAPSHOT/spring-boot-test-2.4.0-20200629.135853-137.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-test/2.4.0-SNAPSHOT/spring-boot-test-2.4.0-20200627.084519-133-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-test/2.4.0-SNAPSHOT/spring-boot-test-2.4.0-20200629.135853-137-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-test/2.4.0-SNAPSHOT/spring-boot-test-2.4.0-20200627.084519-133-sources.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-test/2.4.0-SNAPSHOT/spring-boot-test-2.4.0-20200629.135853-137-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

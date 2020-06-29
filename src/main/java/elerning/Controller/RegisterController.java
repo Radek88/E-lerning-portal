@@ -27,9 +27,9 @@ public class RegisterController {
                           @RequestParam("email") String email,
                           @RequestParam("password") String password
                           ) {
-        User user = new User(login, name, surname,"user", password, email);
+        User user = new User();
 
-        userService.saveUser(user);
+        userService.registerNewUser(user);
         return "login";
     }
 
