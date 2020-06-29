@@ -4,6 +4,8 @@ package elerning.Model;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import java.util.List;
 
 @Entity
@@ -32,6 +34,8 @@ public class User {
     private String password;
 
     @Column(name="USR_EMAIL")
+    @NotBlank(message = "Please enter email address")
+    @Email(message = "Wrong email format")
     private String email;
 
    /* @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
@@ -41,7 +45,12 @@ public class User {
     public User() {
     }
 
-    public User(String login,String name, String surname, String role, String password, String email ) {
+    public User(String login,String name, String surname,  String password, String email ) {
+        this.login = login;
+        this.name = name;
+        this.surname = surname;
+        this.password = password;
+        this.email = email;
     }
 
     public int getId() {

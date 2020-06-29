@@ -17,18 +17,12 @@ public class testController {
     UserRepository userRepository;
 
     @RequestMapping("/login")
-    private String test(){
-
-        User user = userService.findByLogin("test");
-        User user1 = userService.findByLogin("test");
-        System.out.println(user.getEmail());
-        /*System.out.println(user.getEmail());*/
-
+    private String test() {
         return "login";
     }
 
     @RequestMapping("/header")
-    private String header(){
+    private String header() {
 
         return "header.html";
     }

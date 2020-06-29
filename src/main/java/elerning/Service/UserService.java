@@ -9,4 +9,6 @@ public interface UserService {
     public User findByLogin(String login);
 
     public User findByName(String name);
+
+    boolean registerNewUser(User user);
 }
