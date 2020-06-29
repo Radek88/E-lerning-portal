@@ -50,14 +50,8 @@ public class UserController {
         }
     }
 
-    @PostMapping
-    private String login(String login, String password, HttpRequest request, HttpResponse response){
-        //Paździerz 2?
-        if(userService.findByLogin(login)!=null && userService.findByLogin(login).getPassword().equals(password)){
-           User user = userService.findByLogin(login);
-
-
-        }
+    @PostMapping("/login")
+    private String login(){
 
         return "home";
     }
