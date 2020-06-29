@@ -36,6 +36,7 @@ public class UserController {
 
     @PostMapping("/save")
     private String registerUser(@Valid @ModelAttribute("user") User user, BindingResult bindingResult) {
+        //Paździerz ?
         if (bindingResult.hasErrors()) {
             return "register";
         } else {
@@ -44,8 +45,6 @@ public class UserController {
                 return "home";
             } else {
 
-                ObjectError objectError = new ObjectError("userExist", "Login already used");
-                bindingResult.addError(objectError);
                 return "register";
             }
         }
@@ -53,7 +52,7 @@ public class UserController {
 
     @PostMapping
     private String login(String login, String password, HttpRequest request, HttpResponse response){
-
+        //Paździerz 2?
         if(userService.findByLogin(login)!=null && userService.findByLogin(login).getPassword().equals(password)){
            User user = userService.findByLogin(login);
 

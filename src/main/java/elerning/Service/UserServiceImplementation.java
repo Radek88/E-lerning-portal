@@ -36,6 +36,8 @@ public class UserServiceImplementation implements UserService {
     @Override
     public boolean registerNewUser(User user) {
         if(userRepository.findByLogin(user.getLogin())==null && userRepository.findByEmail(user.getEmail())==null){
+
+            //Encoder w serwisie?
             user.setPassword(passwordEncoder.encode(user.getPassword()));
             userRepository.saveAndFlush(user);
            return true;

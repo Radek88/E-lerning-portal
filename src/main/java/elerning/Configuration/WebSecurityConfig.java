@@ -22,8 +22,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserDetailsService userDetailsService;
 
-    @Autowired
-    private UserService userService;
 
     @Bean
     public UserDetailsService userDetailsService() {
@@ -53,6 +51,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        //tymczasowa walidacja na czas połącznie Spring Security i DB
         http
                 .authorizeRequests()
                 .antMatchers(
