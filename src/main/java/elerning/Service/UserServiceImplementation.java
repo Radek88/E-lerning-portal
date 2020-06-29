@@ -20,6 +20,14 @@ public class UserServiceImplementation implements UserService {
     @Override
     public User findByName(String name) {
         User user = userRepository.findByName(name);
+
         return user;
     }
+
+    @Override
+    public void saveUser(User user) {
+        userRepository.save(user);
+    }
+
+
 }

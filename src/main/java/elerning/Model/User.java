@@ -1,7 +1,9 @@
 package elerning.Model;
 
 
+import com.sun.istack.NotNull;
 import lombok.Data;
+import org.hibernate.annotations.NotFound;
 
 import javax.persistence.*;
 import java.util.List;
@@ -17,6 +19,7 @@ public class User {
     private int id;
 
     @Column(name="USR_LOGIN")
+    @NotNull
     private String login;
 
     @Column(name="USR_NAME")

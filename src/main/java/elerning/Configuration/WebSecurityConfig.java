@@ -45,6 +45,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(
                         "/login",
                         "/register",
+                        "/saveUser",
                         "/header",
                         "/js/**",
                         "/img/**",

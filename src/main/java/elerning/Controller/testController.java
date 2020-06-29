@@ -19,17 +19,8 @@ public class testController {
     @RequestMapping("/login")
     private String test(){
 
-        User user = userService.findByLogin("test");
-        User user1 = userService.findByLogin("test");
-        System.out.println(user.getEmail());
-        /*System.out.println(user.getEmail());*/
-
         return "login";
     }
 
-    @RequestMapping("/header")
-    private String header(){
 
-        return "header.html";
-    }
 }
