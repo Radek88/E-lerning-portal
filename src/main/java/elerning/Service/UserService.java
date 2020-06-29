@@ -10,5 +10,5 @@ public interface UserService {
 
     public User findByName(String name);
 
-    public void saveUser(User user);
+    boolean registerNewUser(User user);
 }

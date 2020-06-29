@@ -1,49 +1,45 @@
 <!DOCTYPE html>
-<html lang="pl" xmlns:th="http://thymeleaf.org">
+<html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Zarejestruj się</title>
-    <div th:replace="fragments/header :: header-css"/>
+    <title>Register Page</title>
+    <div th:replace="header :: header-css"/>
 </head>
 <body>
-<div th:replace="fragments/header :: header"/>
-
+<div th:replace="header :: header"/>
 <div class="container">
     <div class="row" style="margin-top:20px">
         <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-            <form action="#" th:action="@{saveUser}" th:object="${user}" method="post">
+            <form th:action="@{/user/save}" th:object="${user}" method="post">
                 <fieldset>
-                    <h1>Uzupełnij formularz</h1>
+                    <h1>Please provide account details</h1>
                     <div class="form-group">
-                        <input type="text" class="form-control input-lg" placeholder="Login" th:name="login" th:field="*{login}" required="true" autofocus="true"/>
-                        <span th:if="${#fields.hasErrors('login')}"  th:errors="*{login}" class="text-danger"> Błędna nazwa użytkownika</span>
-                    </div>
-
-                    <div class="form-group">
-                        <input type="text" class="form-control input-lg" placeholder="Imię" required="true" th:name="surname" th:field="*{surname}"/>
-                        <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="text-danger"> Błędne imię</span>
+                        <input type="text" class="form-control input-lg" placeholder="Login" th:field="*{login}" required="true" autofocus="true"/>
+                        <span th:if="${#fields.hasErrors('login')}" th:errors="*{login}"  class="text-danger"> Login Error</span>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control input-lg" placeholder="Nazwisko" required="true" th:name="name" th:field="*{name}"/>
-                        <span th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}" class="text-danger"> Błędne nazwisko</span>
+                        <input type="text" class="form-control input-lg" placeholder="First Name" required="true" th:field="*{surname}"/>
+                        <span th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}" class="text-danger"> First Name error</span>
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control input-lg" placeholder="Password" required="true" th:name="password" th:field="*{password}"/>
-                        <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="text-danger"> Niepoprawne hasło</span>
+                        <input type="text" class="form-control input-lg" placeholder="Last Name" required="true" th:field="*{name}"/>
+                        <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="text-danger"> Last Name error</span>
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control input-lg" placeholder="Email" required="true" th:name="email" th:field="*{email}"/>
-                        <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-danger"> Niepoprawny email</span>
+                        <input type="password" class="form-control input-lg" placeholder="Password" required="true" th:field="*{password}"/>
+                        <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="text-danger"> Password error</span>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control input-lg" placeholder="Email" required="true" th:field="*{email}"/>
+                        <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-danger"> Email Error</span>
                     </div>
                     <div class="form-group" >
-                        <input type="submit" class="btn btn-lg btn-primary btn-block" value="Zarejestruj się!"/>
+                        <input type="submit" class="btn btn-lg btn-primary btn-block" value="Register"/>
                     </div>
                 </fieldset>
             </form>
         </div>
     </div>
-
 </div>
-
 </body>
 </html>

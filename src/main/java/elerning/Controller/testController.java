@@ -17,10 +17,13 @@ public class testController {
     UserRepository userRepository;
 
     @RequestMapping("/login")
-    private String test(){
-
+    private String test() {
         return "login";
     }
 
+    @RequestMapping("/header")
+    private String header() {
 
+        return "header.html";
+    }
 }
