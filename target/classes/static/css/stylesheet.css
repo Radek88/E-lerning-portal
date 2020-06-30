@@ -79,6 +79,16 @@ p {
     color: tomato;
 }
 
+ .block{
+                text-align: center;
+                border-style: solid;
+                margin: 0 auto;
+            }
 
+.logout{
+    background tomato;
+    color tomato;
+
+}
 
 
