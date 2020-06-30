@@ -23,10 +23,7 @@ import java.net.http.HttpResponse;
 @Controller
 public class UserController {
 
-    @RequestMapping("/home")
-    private String home(){
-        return "home";
-    }
+
 
 
 

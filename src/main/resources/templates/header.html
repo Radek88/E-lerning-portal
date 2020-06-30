@@ -6,6 +6,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
         <link rel="stylesheet" th:href="@{css/stylesheet.css}" href="css/stylesheet.css"/>
 
         <div id="eLearn" class="block" style="background-color: black">
@@ -24,22 +25,25 @@
             </div>
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a th:href="@{/user/home}">Home</a></li>
+                    <li class="active"><a th:href="@{/home}">Home</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active" sec:authorize="${!isAuthenticated()}"><a th:href="@{/user/register}"><span
-                            class="glyphicon glyphicon-user"></span> Register</a></li>
-                    <li class="active" sec:authorize="${!isAuthenticated()}"><a th:href="@{/user/login}"><span
-                            class="glyphicon glyphicon-log-in"></span> Log In</a></li>
+                    <li class="active" sec:authorize="${!isAuthenticated()}"><a th:href="@{/register}"><span
+                            class="glyphicon glyphicon-user"></span> Rejstracja</a></li>
+                    <li class="active" sec:authorize="${!isAuthenticated()}"><a th:href="@{/login}"><span
+                            class="glyphicon glyphicon-log-in"></span> Zaloguj</a></li>
+                    <li class="active" sec:authorize="${isAuthenticated()}"><a th:href="@{/categories}"><span
+                            class="glyphicon glyphicon-log-in"></span> Kategorie</a></li>
                     <li class="active" sec:authorize="${isAuthenticated()}"><a th:href="@{/details}"><span
-                            class="glyphicon glyphicon-user"></span> User Details</a></li>
-                    <li class="active" sec:authorize="${isAuthenticated()}"><a th:href="@{/logout}"><span
-                            class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
-                    <li class="active" sec:authorize="${isAuthenticated()}"><form th:action="@{/logout}" method="post">
-                        <span class="glyphicon glyphicon-log-out">
-                        <input class="logout" type="submit" value="Logout">
-                        </span>
-                    </form>Log Out</a></li>
+                            class="glyphicon glyphicon-user"></span> Konto Użytkownika</a></li>
+                    <li class="active" sec:authorize="${isAuthenticated()}">
+                        <a>
+                            <form th:action="@{/logout}" method="post">
+
+                                <input class="logout" type="submit" value="Wyloguj">
+
+                            </form>
+                        </a></li>
                 </ul>
             </div>
         </div>
