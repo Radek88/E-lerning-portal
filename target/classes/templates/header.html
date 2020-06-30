@@ -11,11 +11,12 @@
 
         <div id="eLearn" class="block" style="background-color: black">
             <h1 style="color: white">E-Learn that sh*t!</h1>
-            <p style="color: white">E-Learning sessions that makes you Einstein type!</p>
+            <p style="color: rgb(255, 255, 255)">E-Learning sessions that makes you Einstein type!</p>
         </div>
     </div>
 </head>
 <body>
+
 <div th:fragment="header">
     <!-- this is header -->
     <nav class="navbar navbar-inverse">
@@ -33,7 +34,7 @@
                     <li class="active" sec:authorize="${!isAuthenticated()}"><a th:href="@{/login}"><span
                             class="glyphicon glyphicon-log-in"></span> Zaloguj</a></li>
                     <li class="active" sec:authorize="${isAuthenticated()}"><a th:href="@{/categories}"><span
-                            class="glyphicon glyphicon-log-in"></span> Kategorie</a></li>
+                            class="glyphicon glyphicon-log-in"></span> Kateagorie</a></li>
                     <li class="active" sec:authorize="${isAuthenticated()}"><a th:href="@{/details}"><span
                             class="glyphicon glyphicon-user"></span> Konto Użytkownika</a></li>
                     <li class="active" sec:authorize="${isAuthenticated()}">
