@@ -46,33 +46,37 @@ public class UserServiceImplementation implements UserService {
 
     @Override
     public boolean registerNewUser(User user) {
-        if(userRepository.findByLogin(user.getLogin())==null && userRepository.findByEmail(user.getEmail())==null){
-
+        if (userRepository.findByLogin(user.getLogin()) == null && userRepository.findByEmail(user.getEmail()) == null) {
             //Encoder w serwisie?
             user.setPassword(passwordEncoder.encode(user.getPassword()));
             user.setRoles(new HashSet<>(roleRepository.findAll()));
             userRepository.saveAndFlush(user);
-           return true;
-        }else {
-           return false;
+            return true;
+        } else {
+            return false;
         }
     }
 
 
     @Override
-    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        User user = userRepository.findByEmail(email);
+    public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
+        User user = userRepository.findByLogin(login);
         if (user == null) {
             throw new UsernameNotFoundException("Invalid username or password.");
         }
-        return new org.springframework.security.core.userdetails.User(user.getEmail(),
+        return new org.springframework.security.core.userdetails.User(user.getLogin(),
                 user.getPassword(),
                 mapRolesToAuthorities(user.getRoles()));
     }
 
-    private Collection< ? extends GrantedAuthority> mapRolesToAuthorities(Set< Role > roles) {
+    private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Set<Role> roles) {
         return roles.stream()
-                .map(role ->  new SimpleGrantedAuthority(role.getRole()))
+                .map(role -> new SimpleGrantedAuthority(role.getRole()))
                 .collect(Collectors.toList());
+
     }
 }
+
+
+
+

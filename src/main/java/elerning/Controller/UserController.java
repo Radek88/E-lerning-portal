@@ -22,39 +22,13 @@ import java.net.http.HttpResponse;
 @RequestMapping("/user")
 @Controller
 public class UserController {
-    @Autowired
-    UserService userService;
 
-    @GetMapping("/register")
-    private String registerForm(Model model) {
-
-        User user = new User();
-        model.addAttribute("user", user);
-        return "register";
-    }
-
-
-    @PostMapping("/save")
-    private String registerUser(@Valid @ModelAttribute("user") User user, BindingResult bindingResult) {
-        //Paździerz ?
-        if (bindingResult.hasErrors()) {
-            return "register";
-        } else {
-
-            if (userService.registerNewUser(user)) {
-                return "home";
-            } else {
-
-                return "register";
-            }
-        }
-    }
-
-    @PostMapping("/login")
-    private String login(){
-
+    @RequestMapping("/home")
+    private String home(){
         return "home";
     }
+
+
 
 
 }

@@ -14,6 +14,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
@@ -35,42 +36,27 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
-    @Bean(name = BeanIds.AUTHENTICATION_MANAGER)
-    @Override
-    public AuthenticationManager authenticationManager() throws Exception {
-        return super.authenticationManagerBean();
-    }
-   /* public DaoAuthenticationProvider authenticationProvider(){
-        DaoAuthenticationProvider auth = new DaoAuthenticationProvider();
-        auth.setUserDetailsService(userService);
-        auth.setPasswordEncoder(bCryptPasswordEncoder());
-        return auth;
-    }
-    */
-
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        //tymczasowa walidacja na czas połącznie Spring Security i DB
         http
                 .authorizeRequests()
                 .antMatchers(
                         "/login",
                         "/register",
-                        "/saveUser",
-                        "/header",
-                        "/user/**",
                         "/js/**",
                         "/img/**",
                         "/css/**",
                         "/webjars/**")
                 .permitAll()
+                .antMatchers("/user/**").hasAnyAuthority("ADMIN","USER")
                 .antMatchers("/admin/**").hasAuthority("ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login")
-                .defaultSuccessUrl("/home", true)
+                .failureForwardUrl("/header")
+                .defaultSuccessUrl("/register", true)
                 .permitAll()
                 .and()
                 .logout().logoutUrl("/logout").permitAll();
@@ -79,7 +65,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 
     @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+    public void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder());
     }
+
+
 }
