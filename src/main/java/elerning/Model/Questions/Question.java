@@ -11,7 +11,7 @@ public class Question {
     private int id;
 
     @Column(name = "question")
-    private String question;
+    private String questionText;
 
     @Column(name = "A")
     private String a;
@@ -39,12 +39,12 @@ public class Question {
         this.id = id;
     }
 
-    public String getQuestion() {
-        return question;
+    public String getQuestionText() {
+        return questionText;
     }
 
-    public void setQuestion(String question) {
-        this.question = question;
+    public void setQuestionText(String question) {
+        this.questionText = question;
     }
 
     public String getA() {

@@ -43,6 +43,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         "/home",
                         "/register/**",
                         "/js/**",
+                        "/static/img/**",
                         "/img/**",
                         "/css/**",
                         "/webjars/**")
