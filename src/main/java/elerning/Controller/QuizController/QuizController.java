@@ -33,7 +33,12 @@ public class QuizController {
         Integer questionId = 1;
         boolean isAnswerCorrect = quizService.validateAnswer(answer, correctAnswer);
         model.addAttribute(quizService.findQuestionById(2));
-        return displayQuestion(model,questionId);
+        return displayQuestion(model, questionId);
+    }
+
+    @GetMapping("/createQuiz")
+    private String createQuiz() {
+        return "createQuiz";
     }
 
 

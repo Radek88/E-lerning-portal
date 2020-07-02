@@ -1,7 +1,5 @@
 package elerning.Model;
 
-import elerning.Model.User;
-
 import javax.persistence.*;
 import java.util.Set;
 
@@ -12,7 +10,7 @@ public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "role_id")
-    private int role_id;
+    private int id;
 
     @Column(name="role")
     private String role;
@@ -24,12 +22,12 @@ public class Role {
 
     }
 
-    public int getRole_id() {
-        return role_id;
+    public int getId() {
+        return id;
     }
 
-    public void setRole_id(int role_id) {
-        this.role_id = role_id;
+    public void setId(int role_id) {
+        this.id = role_id;
     }
 
     public String getRole() {
