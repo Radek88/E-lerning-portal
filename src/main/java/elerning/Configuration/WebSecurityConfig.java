@@ -40,6 +40,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         "/login",
                         "/quiz/**",
                         "/",
+                        "/save",
+                        "/contact",
                         "/home",
                         "/register",
                         "/save",
