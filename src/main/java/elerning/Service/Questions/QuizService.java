@@ -1,6 +1,7 @@
 package elerning.Service.Questions;
 
 import elerning.Model.Quiz.Question;
+import elerning.Model.Quiz.Quiz;
 
 public interface QuizService {
 
@@ -11,6 +12,10 @@ public interface QuizService {
     boolean validateAnswer(String answer, String correctAnswer);
 
     void addQuestionToQuiz(int questionId);
+
+    Quiz findQuizById(int id);
+
+    void addQuizToDB(Quiz quiz);
 
 
 

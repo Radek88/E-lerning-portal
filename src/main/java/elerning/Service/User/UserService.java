@@ -1,8 +1,6 @@
 package elerning.Service.User;
 
 import elerning.Model.User;
-import elerning.Repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 public interface UserService extends UserDetailsService {

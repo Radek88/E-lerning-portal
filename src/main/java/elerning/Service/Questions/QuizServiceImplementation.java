@@ -1,6 +1,7 @@
 package elerning.Service.Questions;
 
 import elerning.Model.Quiz.Question;
+import elerning.Model.Quiz.Quiz;
 import elerning.Repository.Quiz.QuestionsRepository;
 import elerning.Repository.Quiz.QuizRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +34,17 @@ public class QuizServiceImplementation implements QuizService {
     @Override
     public void addQuestionToQuiz(int questionId) {
         Question question = questionsRepository.findById(questionId);
-        quizRepository.save(question);
+
+    }
+
+    @Override
+    public void addQuizToDB(Quiz quiz) {
+        quizRepository.save(quiz);
+    }
+
+    @Override
+    public Quiz findQuizById(int id) {
+        return quizRepository.findById(id);
     }
 
 }

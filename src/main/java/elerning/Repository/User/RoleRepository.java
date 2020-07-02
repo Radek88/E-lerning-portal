@@ -1,4 +1,4 @@
-package elerning.Repository;
+package elerning.Repository.User;
 
 import elerning.Model.Role;
 import org.springframework.data.jpa.repository.JpaRepository;

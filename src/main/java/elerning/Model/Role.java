@@ -1,6 +1,6 @@
 package elerning.Model;
 
-import lombok.Generated;
+import elerning.Model.User;
 
 import javax.persistence.*;
 import java.util.Set;

@@ -2,9 +2,8 @@ package elerning.Service.User;
 
 import elerning.Model.Role;
 import elerning.Model.User;
-import elerning.Repository.RoleRepository;
-import elerning.Repository.UserRepository;
-import elerning.Service.User.UserService;
+import elerning.Repository.User.RoleRepository;
+import elerning.Repository.User.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

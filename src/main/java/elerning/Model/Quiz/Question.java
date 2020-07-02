@@ -8,7 +8,8 @@ public class Question {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int question_id;
+    @Column(name = "id")
+    private int id;
 
     @Column(name = "question")
     private String questionText;
@@ -31,12 +32,12 @@ public class Question {
     public Question() {
     }
 
-    public int getQuestion_id() {
-        return question_id;
+    public int getId() {
+        return id;
     }
 
-    public void setQuestion_id(int question_id) {
-        this.question_id = question_id;
+    public void setId(int question_id) {
+        this.id = question_id;
     }
 
     public String getQuestionText() {
