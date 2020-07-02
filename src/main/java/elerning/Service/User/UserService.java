@@ -1,4 +1,4 @@
-package elerning.Service;
+package elerning.Service.User;
 
 import elerning.Model.User;
 import elerning.Repository.UserRepository;

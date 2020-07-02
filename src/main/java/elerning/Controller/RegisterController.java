@@ -1,7 +1,7 @@
 package elerning.Controller;
 
 import elerning.Model.User;
-import elerning.Service.UserService;
+import elerning.Service.User.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>eLearning - ucz się razem z nami! :) </title>
+    <div th:replace="header :: header-css"/>
+
+</head>
+<body>
+<div th:replace="header :: header"/>
+
+
+<div class="container">
+
+
+    <form th:action="@{/quiz/answer}" th:object="${question}" method="post" th:name="answer">
+        <p th:text="*{questionText}"></p>
+        <p><input type="radio" value="A" th:text="*{A}"></p>
+        <p><input type="radio" value="B" th:text="*{B}"></p>
+        <p><input type="radio" value="C" th:text="*{C}"></p>
+        <p><input type="radio" value="D" th:text="*{D}"></p>
+        <input type="hidden" th:name="correct" value="*{correct}">
+        <p><input type="submit"></p>
+    </form>
+
+
+</div>
+
+
+</body>
+</html>
