@@ -1,4 +1,4 @@
-package elerning.Model.Questions;
+package elerning.Model.Quiz;
 
 import javax.persistence.*;
 
@@ -8,7 +8,7 @@ public class Question {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int question_id;
 
     @Column(name = "question")
     private String questionText;
@@ -31,12 +31,12 @@ public class Question {
     public Question() {
     }
 
-    public int getId() {
-        return id;
+    public int getQuestion_id() {
+        return question_id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setQuestion_id(int question_id) {
+        this.question_id = question_id;
     }
 
     public String getQuestionText() {
