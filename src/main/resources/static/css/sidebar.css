@@ -1,0 +1,46 @@
+.sidebar {
+  height: auto;
+  width: 120px;
+  position: fixed;
+  z-index: 1;
+  top: auto;
+  left: 0;
+  background: lavender;
+    border-left: 3px solid cornflowerblue;
+    border-right: 3px solid cornflowerblue;
+    border-bottom: 3px solid cornflowerblue;
+    border-radius: 4px;
+  overflow-x: hidden;
+  padding-top: 16px;
+  transition: width 2s;
+}
+.sidebar:hover {
+
+width:180px;
+}
+
+
+/* Style sidebar links */
+.sidebar a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #032856;
+  display: block;
+}
+
+/* Style links on mouse-over */
+.sidebar a:hover {
+  color: #032856;
+}
+
+/* Style the main content */
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+  padding: 0px 10px;
+}
+
+/* Add media queries for small screens (when the height of the screen is less than 450px, add a smaller padding and font-size) */
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
