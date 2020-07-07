@@ -1,9 +1,3 @@
-
-/*tr {
-    border: 1px solid gray;
-    text-align: center;
-}*/
-
 tr:nth-child(even) {
     background: #FFFFFF
 }
@@ -41,6 +35,17 @@ tr:nth-child(odd) {
     width: 100%;
     margin: auto;
     color: #FFFFFF;
+
+}
+
+h3 {
+    text-align: center;
+    font-size: 35px;
+}
+h6{
+    text-align: center;
+    font-size: 15px;
+    opacity: 50%;
 }
 
 #container {
@@ -60,18 +65,20 @@ tr:nth-child(odd) {
     background-color: lavender;
 
 }
-    .navbar-custom {
-        border-radius: 4px;
-    }
-    .navbar-custom {
-        osition: relative;
-        min-height: 50px;
-        margin-bottom: 0px;
-        border: 3px solid cornflowerblue;
-    }
+
+.navbar-custom {
+    border-radius: 4px;
+}
+
+.navbar-custom {
+    osition: relative;
+    min-height: 50px;
+    margin-bottom: 20px;
+    border: 3px solid cornflowerblue;
+}
 
 
-.logout{
+.logout {
     padding: 0;
     margin: 0;
     width: 100%;
@@ -80,43 +87,102 @@ tr:nth-child(odd) {
     color: #032856;
 
 }
-.test{
-    color:rebeccapurple
+
+.test {
+    color: rebeccapurple
 }
 
-.header-custom{
+.header-custom {
     width: 100%;
 
-
-
 }
 
-.header-custom-logo{
+.header-custom-logo {
     background: lavender;
     border-left: 3px solid cornflowerblue;
     border-right: 3px solid cornflowerblue;
     border-top: 3px solid cornflowerblue;
 }
 
-.logo{
+.logo {
 
     padding: 0px;
     margin: 0px 100px;
 
 }
 
+p {
+    text-align: center;
+}
+
 a {
     color: #032856;
     text-decoration: none;
-}
-a {
     background-color: transparent;
 }
 
-body{
-    
+* {
+    margin: 0;
+    padding: 0;
 }
 
+form, input, select, textarea {
+    margin: 0;
+    padding: 0;
+}
+input{
+    size: 500px;
+}
+div.box {
+    margin: 0 auto;
+    width: 300px;
 
+}
 
+div.box h1 {
+    font-size: 35px;
+    text-align: center;
+}
+
+div.box label {
+    width: 100%;
+    display: block;
+    padding: 10px 0 10px 0;
+}
+
+div.box label span {
+    display: block;
+    font-size: 12px;
+    float: left;
+    width: 100px;
+    text-align: right;
+    padding: 5px 20px 0 0;
+}
+
+div.box .wpis {
+    padding: 10px 10px;
+    width: 300px;
+}
+
+div.box .wiadomosc {
+    padding: 7px 7px;
+    width: 300px;
+    border-bottom: 1px double #171717;
+    border-top: 1px double #171717;
+    border-left: 1px double #333333;
+    border-right: 1px double #333333;
+    overflow: hidden;
+    height: 150px;
+}
+
+div.box .button {
+    margin: 0 0 10px 0;
+    padding: 4px 7px;
+    border: 0px;
+    position: relative;
+    top: 10px;
+    left: 382px;
+    width: 100px;
+
+}
 

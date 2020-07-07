@@ -1,16 +1,17 @@
 package elerning.Service.Email;
 
+import org.springframework.stereotype.Service;
+
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 
-/**
- * Created by anirudh on 28/10/14.
- */
-public class SendEmail {
+@Service
+public class EmailServiceImplementation implements EmailService {
 
-    public static void main(String[] args) {
+    @Override
+    public void sendEmail(String senderName, String senderEmail, String subject, String messagePlainText) {
 
         final String username = "elerningproject@gmail.com";
         final String password = "JAVAtor6";
@@ -26,7 +27,7 @@ public class SendEmail {
         Session session = Session.getDefaultInstance(props,
                 new javax.mail.Authenticator() {
                     protected PasswordAuthentication getPasswordAuthentication() {
-                        return new PasswordAuthentication(username,password);
+                        return new PasswordAuthentication(username, password);
                     }
                 });
 
@@ -35,17 +36,18 @@ public class SendEmail {
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress("elerningproject@gmail.com"));
             message.setRecipients(Message.RecipientType.TO,
-                    InternetAddress.parse("test@gmail.com"));
-            message.setSubject("Test JCG Example");
-            message.setText("Hi," +
-                    "This is a Test mail for JCG Example!");
-
+                    InternetAddress.parse("elerningproject@gmail.com"));
+            message.setSubject(subject);
+            message.setText(messagePlainText);
             Transport.send(message);
 
-            System.out.println("Mail sent succesfully!");
 
         } catch (MessagingException e) {
             throw new RuntimeException(e);
         }
+
+
     }
+
+
 }

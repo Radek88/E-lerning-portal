@@ -42,7 +42,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         "/",
                         "/home",
                         "/about",
-                        "/contact",
+                        "/contact/**",
                         "/course1",
                         "/register/**",
                         "/js/**",
