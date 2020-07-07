@@ -2,9 +2,8 @@ package elerning.Service.User;
 
 import elerning.Model.Role;
 import elerning.Model.User;
-import elerning.Repository.RoleRepository;
-import elerning.Repository.UserRepository;
-import elerning.Service.User.UserService;
+import elerning.Repository.User.RoleRepository;
+import elerning.Repository.User.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -48,7 +47,9 @@ public class UserServiceImplementation implements UserService {
         if (userRepository.findByLogin(user.getLogin()) == null && userRepository.findByEmail(user.getEmail()) == null) {
             //Encoder w serwisie?
             user.setPassword(passwordEncoder.encode(user.getPassword()));
-            user.setRoles(new HashSet<>(roleRepository.findAll()));
+            Set<Role> roles = new HashSet<>();
+            roles.add(roleRepository.findById(2));
+            user.setRoles(roles);
             userRepository.saveAndFlush(user);
             return true;
         } else {

@@ -2,11 +2,46 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>eLearning - o witrynie </title>
-    <div th:replace="fragments/header :: header-css"/>
+    <title>O twórcach eLearn Development</title>
+    <link rel="stylesheet" th:href="@{/css/about.css}" href="/css/about.css"/>
+    <!--    <link rel="stylesheet" type="text" href="contact.css">-->
+    <div th:replace="header :: header-css"/>
+
 </head>
 <body>
-<div th:replace="fragments/header :: header"/>
-<h1>e-Learning</h1>
+<div th:replace="header :: header"/>
+<div class="wrapper">
+    <h1>Twórcy</h1>
+    <div class="team">
+        <div class="team_member">
+            <div class="team_img">
+                <img src="/img/default_user.jpg" alt="team_member_image">
+            </div>
+            <h2> Radosław Halfaf </h2>
+            <p class="role">Developer</p>
+            <p>Lorem ipsum.</p>
+        </div>
+        <div class="team_member">
+            <div class="team_img">
+                <img src="/img/default_user.jpg" alt="team_member_image">
+            </div>
+            <h2> Szymon Basiul </h2>
+            <p class="role">Developer</p>
+            <p>Lorem ipsum.</p>
+        </div>
+        <div class="team_member">
+            <div class="team_img">
+                <img src="/img/default_user.jpg" alt="team_member_image">
+            </div>
+            <h2> Żaneta Lewandowska </h2>
+            <p class="role">Developer</p>
+            <p>Lorem ipsum.</p>
+        </div>
+    </div></div><br><br>
+
+<div class="text"><h2>Radosław</h2><p class="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean elementum diam vitae sodales rhoncus. Cras a risus lacus. In blandit felis lacus, a mattis sem condimentum vitae. Nulla quis odio rhoncus, facilisis nisi eu, sollicitudin libero. Nulla malesuada, massa vitae malesuada vulputate, dui turpis tincidunt dui, non accumsan diam turpis et nunc. Praesent molestie vel lorem ac vestibulum. Aliquam interdum orci quam, at maximus leo fermentum in. Nunc vestibulum lacus quam, hendrerit mattis tortor mollis a. Donec dignissim tortor lorem, ornare rutrum ex congue ut. Sed placerat, nunc ut varius malesuada, odio odio hendrerit nunc, at interdum massa magna eu leo. Maecenas augue ligula, dapibus ut ex ut, scelerisque bibendum velit. Sed arcu dolor, accumsan vitae eleifend at, viverra sed augue. Donec at commodo risus, vel rhoncus libero. Donec mollis ante sit amet ex aliquam mattis.</p>
+    <h2>Szymon</h2><p class="lorem">Nulla faucibus imperdiet quam quis faucibus. In porta luctus blandit. Quisque fermentum nunc purus, sit amet fringilla quam efficitur ut. Sed rhoncus lacus eget libero ornare eleifend. Nulla lorem tortor, vestibulum ac magna vel, hendrerit pretium urna. Pellentesque at est ut neque molestie efficitur a in nunc. Vivamus ante quam, dapibus ac eros eu, hendrerit consectetur erat. Donec imperdiet interdum pellentesque.</p>
+    <h2>Żaneta</h2> <p class="lorem">In vitae fermentum metus. Cras nec est in tellus luctus aliquam sed vitae nisl. Donec ipsum est, varius sit amet rhoncus sed, efficitur nec sem. Sed ac quam urna. Phasellus lacus libero, laoreet sed lacinia non, lacinia ut ligula. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce egestas magna vitae volutpat rhoncus. Praesent id turpis vel dui efficitur aliquet. Nulla fermentum eget ex ultrices dictum. Pellentesque tempor, ipsum id imperdiet mattis, orci elit dictum magna, vitae suscipit sapien orci eget nisl. Vivamus justo libero, rhoncus nec cursus quis, tincidunt sed arcu. Proin suscipit metus sit amet feugiat sollicitudin.</p><br><br>
+</div>
 </body>
 </html>

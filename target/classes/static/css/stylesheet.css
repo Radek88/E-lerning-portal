@@ -66,7 +66,7 @@ tr:nth-child(odd) {
     .navbar-custom {
         osition: relative;
         min-height: 50px;
-        margin-bottom: 20px;
+        margin-bottom: 0px;
         border: 3px solid cornflowerblue;
     }
 
@@ -111,6 +111,10 @@ a {
 }
 a {
     background-color: transparent;
+}
+
+body{
+    
 }
 
 

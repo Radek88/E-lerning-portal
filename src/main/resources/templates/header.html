@@ -6,7 +6,6 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
         <link rel="stylesheet" th:href="@{/css/stylesheet.css}" href="css/stylesheet.css"/>
     </span>
 
@@ -36,18 +35,24 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li class="active" sec:authorize="${!isAuthenticated()}"><a th:href="@{/register}"><span
                             class="glyphicon glyphicon-user"></span> Rejstracja</a></li>
+
                     <li class="active" sec:authorize="${!isAuthenticated()}"><a th:href="@{/login}"><span
                             class="glyphicon glyphicon-log-in"></span> Zaloguj</a></li>
+
+                    <li class="active" sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/user/adminPanel}"><span
+                            class="glyphicon glyphicon-log-in"></span> Panel administratora</a></li>
+
                     <li class="active" sec:authorize="${isAuthenticated()}"><a th:href="@{/categories}"><span
                             class="glyphicon glyphicon-log-in"></span> Kateagorie</a></li>
+
                     <li class="active" sec:authorize="${isAuthenticated()}"><a th:href="@{/details}"><span
                             class="glyphicon glyphicon-user"></span> Konto Użytkownika</a></li>
+
                     <li class="active" sec:authorize="${isAuthenticated()}">
                         <a>
                             <form th:action="@{/logout}" method="post">
 
                                 <input class="logout" type="submit" value="Wyloguj">
-
                             </form>
                         </a></li>
                 </ul>
@@ -56,5 +61,7 @@
         </div>
     </nav>
 </div>
+
+
 </body>
 </html>

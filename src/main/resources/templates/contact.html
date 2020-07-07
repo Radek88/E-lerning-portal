@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Kontakt eLearn Development</title>
+    <link rel="stylesheet" th:href="@{/css/stylesheet.css}" href="/css/stylesheet.css"/>
+    <!--    <link rel="stylesheet" type="text" href="contact.css">-->
+    <div th:replace="header :: header-css"/>
+</head>
+<body>
+<div th:replace="header :: header"/>
+<div class="box">
+    <form role="form" method="post">
+        <h1>Formularz kontaktowy:</h1>
+        <label>
+            <input type="text" th:placeholder="Imię" class="wpis" name="name" id="name"/>
+        </label>
+        <label>
+            <input type="text" th:placeholder="Email" class="wpis" name="email" id="email"/>
+        </label>
+        <label>
+            <input type="text" th:placeholder="Temat" class="wpis" name="subject" id="subject"/>
+        </label>
+        <label>
+            <textarea class="wiadomosc" th:placeholder="Wiadomość" name="message" id="message"></textarea>
+            <div class="form-group" >
+                <button class="btn btn-primary btn-block">Wyślij</button>
+            </div>
+        </label>
+    </form>
+</div>
+</body>
+</html>
