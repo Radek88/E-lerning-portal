@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Kurs z podstaw Javy - eLearn Development</title>
+    <link rel="stylesheet" th:href="@{/css/stylesheet.css}" href="/css/stylesheet.css"/>
+    <!--    <link rel="stylesheet" type="text" href="contact.css">-->
+    <div th:replace="header :: header-css"/>
+
+</head>
+
+<body>
+<div th:replace="header :: header"/>
+<SCRIPT LANGUAGE="JavaScript"><!--
+var numPyt = 10;
+var numWyb = 4;
+var odpowiedz = new Array(10);
+odpowiedz[0] = "System.out.println(\"Hello World\");";
+odpowiedz[1] = "==";
+odpowiedz[2] = "// Komentarz";
+odpowiedz[3] = "String";
+odpowiedz[4] = "int x = 5";
+odpowiedz[5] = "float x = 2.8f";
+odpowiedz[6] = "length()";
+odpowiedz[7] = "The + sign";
+odpowiedz[8] = "methodName()";
+odpowiedz[9] = "toUpperCase()";
+
+function zobaczWynik(form) {
+    var score = 0;
+    var currElt;
+    var currSelection;
+    for (i = 0; i < numPyt; i++) {
+        currElt = i * numWyb;
+        for (j = 0; j < numWyb; j++) {
+            currSelection = form.elements[currElt + j];
+            if (currSelection.checked) {
+                if (currSelection.value == odpowiedz[i]) {
+                    score++;
+                    break;
+                }
+            }
+        }
+    }
+    score = Math.round(score / numPyt * 100);
+    form.percentage.value = score + "%";
+    var correctodpowiedz = "";
+    for (i = 1; i <= numPyt; i++) {
+        correctodpowiedz += i + ". " + odpowiedz[i - 1] + "\r\n";
+    }
+    form.wyniki.value = correctodpowiedz;
+}
+
+// --></SCRIPT>
+</P>
+
+<P>
+<FORM NAME="quiz">
+</P>
+<h3>Test sprawdzający wiedzę z podstaw Javy</h3>
+<h6>Źródło: https://www.w3schools.com/quiztest/quiztest.asp?qtest=JAVA</h6><br>
+
+<P><B>1. Jaka jest poprawna składnia „Hello World” w Javie?</B><BR><BR>
+
+    <INPUT type=radio name="1" value="a">System.out.println("Hello World");<BR>
+    <INPUT type=radio name="1" value="b">echo("Hello World");<BR>
+    <INPUT type=radio name="1" value="c">print ("Hello World");<BR>
+    <INPUT type=radio name="1" value="d">Console.WriteLine("Hello World");</P><BR>
+
+<P><B>2. Którego operatora można użyć do porównania dwóch wartości?</B><BR><BR>
+
+    <INPUT type=radio name="2" value="a">&&<BR>
+    <INPUT type=radio name="2" value="b">== <BR>
+    <INPUT type=radio name="2" value="c">=<BR>
+    <INPUT type=radio name="2" value="d">><<BR></P><BR>
+
+<P><B>3. Jak wstawić KOMENTARZE do kodu Java?</B><BR><BR>
+
+    <INPUT type=radio name="3" value="a">// Komentarz <BR>
+    <INPUT type=radio name="3" value="b">/* Komentarz<BR>
+    <INPUT type=radio name="3" value="c">/** Komentarz<BR>
+    <INPUT type=radio name="3" value="d"># This is a comment</P><BR>
+
+<P><B>4. Jakiego typu danych używa się do utworzenia zmiennej, która przechowuje tekst?</B><BR><BR>
+
+    <INPUT type=radio name="4" value="a">String <BR>
+    <INPUT type=radio name="4" value="b">string<BR>
+    <INPUT type=radio name="4" value="c">myText<BR>
+    <INPUT type=radio name="4" value="d">Txt</P><BR>
+
+<P><B>5. Jak utworzyć zmienną o wartości liczbowej 5?</B><BR><BR>
+
+    <INPUT type=radio name="5" value="a">num x = 5 <BR>
+    <INPUT type=radio name="5" value="b">x = 5;<BR>
+    <INPUT type=radio name="5" value="c">int x = 5; <BR>
+    <INPUT type=radio name="5" value="d">float x = 5;</P><BR>
+
+<P><B>6. Jak utworzyć zmienną z liczbą zmiennoprzecinkową 2.8?</B><BR><BR>
+
+    <INPUT type=radio name="6" value="a">byte x = 2.8f<BR>
+    <INPUT type=radio name="6" value="b">x = 2.8f;<BR>
+    <INPUT type=radio name="6" value="c">int x = 2.8f;<BR>
+    <INPUT type=radio name="6" value="d">float x = 2.8f; </P><BR>
+
+<P><B>7. Jakiej metody można użyć do znalezienia długości łańcucha znaków?</B><BR><BR>
+
+    <INPUT type=radio name="7" value="a">getLength() <BR>
+    <INPUT type=radio name="7" value="b">len()<BR>
+    <INPUT type=radio name="7" value="c">length() <BR>
+    <INPUT type=radio name="7" value="d">getSize()</P><BR>
+
+<P><B>8. Który operator służy do zsumowania dwóch wartości?</B><BR><BR>
+
+    <INPUT type=radio name="8" value="a">The & sign<BR>
+    <INPUT type=radio name="8" value="b">The + sign <BR>
+    <INPUT type=radio name="8" value="c">The * sign <BR>
+    <INPUT type=radio name="8" value="c">The ++ sign</P><BR>
+
+<P><B>9. Jak stworzyć metodę w Javie?</B><BR><BR>
+
+    <INPUT type=radio name="9" value="a">methodName. <BR>
+    <INPUT type=radio name="9" value="b">methodName[]<BR>
+    <INPUT type=radio name="9" value="c">(methodName)<BR>
+    <INPUT type=radio name="9" value="d">methodName() </P><BR>
+
+
+<P><B>10. Jakiej metody można użyć do zwrócenia ciągu wielkimi literami?</B><BR><BR>
+
+    <INPUT type=radio name="10" value="a"> touppercase() <BR>
+    <INPUT type=radio name="10" value="b">upperCase()<BR>
+    <INPUT type=radio name="10" value="c">toUpperCase()<BR>
+    <INPUT type=radio name="10" value="d">tuc()</P><BR>
+
+
+<P align="center">
+
+    <INPUT TYPE="button" VALUE="Zobacz wynik" ONCLICK="zobaczWynik(this.form)">
+
+    <br><br>
+
+    <INPUT TYPE="reset" VALUE="Wyczysc odpowiedzi">
+
+</P>
+
+<hr size=1 color="black">
+
+<P>Twoj wynik: <INPUT TYPE="text" SIZE="7" NAME="percentage"></P>
+
+<P>Poprawne odpowiedzi to:<BR>
+    <TEXTAREA NAME="wyniki" WRAP="virtual" ROWS="9" COLS="70"></TEXTAREA></P>
+
+<CENTER><P></FORM></P></CENTER>
+</body>
+</html>
