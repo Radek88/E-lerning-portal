@@ -1,34 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>Contact Us</title>
-    <link rel="stylesheet" type="text/css" href="contact.css">
+    <title>Kontakt eLearn Development</title>
+    <link rel="stylesheet" th:href="@{/css/stylesheet.css}" href="/css/stylesheet.css"/>
+    <!--    <link rel="stylesheet" type="text" href="contact.css">-->
+    <div th:replace="header :: header-css"/>
 </head>
 <body>
-
-<p>Skontaktuj się z nami:</p>
-
-<address>
-    <a href="mailto:elearning@gmail.com">elearning@gmail.com</a><br>
-    <a href="tel:+480700880994">+48 0700 880 994</a>
-</address>
-
-<div class="contact-title">
-    <h1>Witaj</h1>
-    <h2>Zapraszamy do kontaktu!</h2>
-</div>
-
-<div class="contact-form">
-    <form id="contact-form" method="post" action="">
-        <input name="name" type="text" class="form-control" placeholder="Wpisz swoje imię" required><br>
-        <input name="email" type="email" class="form-control" placeholder="Podaj adres e-mail" required><br>
-
-        <textarea name="message" class="form-control" placeholder="Wiadomość" rows="4" required></textarea><br>
-
-        <input type="submit" class="form-control submit" value="Wyślij wiadomość">
+<div th:replace="header :: header"/>
+<div class="box">
+    <form role="form" method="post">
+        <h1>Formularz kontaktowy:</h1>
+        <label>
+            <input type="text" th:placeholder="Imię" class="wpis" name="name" id="name"/>
+        </label>
+        <label>
+            <input type="text" th:placeholder="Email" class="wpis" name="email" id="email"/>
+        </label>
+        <label>
+            <input type="text" th:placeholder="Temat" class="wpis" name="subject" id="subject"/>
+        </label>
+        <label>
+            <textarea class="wiadomosc" th:placeholder="Wiadomość" name="message" id="message"></textarea>
+            <div class="form-group" >
+                <button class="btn btn-primary btn-block">Wyślij</button>
+            </div>
+        </label>
     </form>
 </div>
-
 </body>
 </html>
