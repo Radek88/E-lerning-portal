@@ -38,7 +38,9 @@ public class EmailServiceImplementation implements EmailService {
             message.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse("elerningproject@gmail.com"));
             message.setSubject(subject);
-            message.setText(messagePlainText);
+            message.setText("Imię nadawcy: "+ senderName+ "\n"
+                    +"email nadawcy: "+ senderEmail+ "\n"
+                    + messagePlainText);
             Transport.send(message);
 
 
