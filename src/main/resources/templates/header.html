@@ -39,8 +39,8 @@
                     <li class="active" sec:authorize="${!isAuthenticated()}"><a th:href="@{/login}"><span
                             class="glyphicon glyphicon-log-in"></span> Zaloguj</a></li>
 
-                    <li class="active" sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/quiz/createQuiz}"><span
-                            class="glyphicon glyphicon-log-in"></span> Quizy</a></li>
+                    <li class="active" sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/user/adminPanel}"><span
+                            class="glyphicon glyphicon-log-in"></span> Panel administratora</a></li>
 
                     <li class="active" sec:authorize="${isAuthenticated()}"><a th:href="@{/categories}"><span
                             class="glyphicon glyphicon-log-in"></span> Kateagorie</a></li>
