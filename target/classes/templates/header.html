@@ -50,7 +50,7 @@
 
                     <li class="active" ><a th:href="@{/contact/showForm}"><span
                             class="glyphicon glyphicon-user"></span> Kontakt</a></li>
-                    
+
                     <li class="active" sec:authorize="${isAuthenticated()}">
                         <a>
                             <form th:action="@{/logout}" method="post">

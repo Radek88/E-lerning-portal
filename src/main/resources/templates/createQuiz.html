@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl" xmlns:th="http://thymeleaf.org">
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>eLearning create quiz</title>
@@ -9,6 +9,35 @@
 </head>
 <body>
 <div th:replace="header :: header"/>
+
+<div class="container" th:if="${quiz == null }">
+    <form th:action="@{/quiz/saveQuiz}" method="post">
+        <a>Podaj nazwę Quizu: </a>
+        <a><input type="text" name="quizName"></a>
+        <a>Podaj liczbę pytań: </a>
+        <a><input type="number" name="numberOfQuestions"></a>
+        <a><input type="submit" value="Zapisz Quiz"></a>
+    </form>
+</div>
+<div class="container" th:if="${quiz != null }">
+    <p th:text="${quiz.quizName}"></p>
+    <p th:text="${quiz.numberOfQuestions}"></p>
+
+    <form th:action="@{/quiz/saveQuestionToQuiz}" method="post" th:object="${question}">
+
+        <p>Podaj treść pytania <textarea rows="5" cols="30" name="questionText" placeholder="Podaj treść pytania"
+                                         th:field="*{questionText}">
+        </textarea></p>
+        <p>Odpowiedź A <input type="text" placeholder="Odpowiedz A" name="answerA" th:field="*{a}"></p>
+        <p>Odpowiedź B <input type="text" placeholder="Odpowiedz B" name="answerB" th:field="*{b}"></p>
+        <p>Odpowiedź C <input type="text" placeholder="Odpowiedz C" name="answerC" th:field="*{c}"></p>
+        <p>Odpowiedź D <input type="text" placeholder="Odpowiedz D" name="answerD" th:field="*{d}"></p>
+        <p>Poprawna odpowiedź<input type="text" placeholder="TUTAJ PODAJ LITERAL POPRAWNEJ ODPOWIEDZI" name="correct"
+                                    th:field="*{correct}"></p>
+        <p><input type="submit" value="Zapisz pytanie"></p>
+
+    </form>
+</div>
 
 </body>
 </html>

@@ -1,4 +1,4 @@
-package elerning.Controller.QuizController;
+package elerning.Controller;
 
 import elerning.Service.Email.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;

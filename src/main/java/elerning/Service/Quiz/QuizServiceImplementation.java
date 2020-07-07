@@ -1,4 +1,4 @@
-package elerning.Service.Questions;
+package elerning.Service.Quiz;
 
 import elerning.Model.Quiz.Question;
 import elerning.Model.Quiz.Quiz;
@@ -31,15 +31,17 @@ public class QuizServiceImplementation implements QuizService {
         return answer.equals(correctAnswer);
     }
 
-    @Override
-    public void addQuestionToQuiz(int questionId) {
-        Question question = questionsRepository.findById(questionId);
-
-    }
 
     @Override
     public void addQuizToDB(Quiz quiz) {
         quizRepository.save(quiz);
+    }
+
+    @Override
+    public Quiz createNewQuiz(String quizName, int numberOfQuestions) {
+        Quiz quiz = new Quiz(quizName,numberOfQuestions);
+        quizRepository.save(quiz);
+        return quiz;
     }
 
     @Override
