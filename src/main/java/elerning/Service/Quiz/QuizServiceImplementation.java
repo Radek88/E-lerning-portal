@@ -45,7 +45,13 @@ public class QuizServiceImplementation implements QuizService {
     }
 
     @Override
+    public void saveQuiz(Quiz quiz) {
+        quizRepository.save(quiz);
+    }
+
+    @Override
     public Quiz findQuizById(int id) {
+
         return quizRepository.findById(id);
     }
 

@@ -73,7 +73,7 @@ h6{
 .navbar-custom {
     osition: relative;
     min-height: 50px;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
     border: 3px solid cornflowerblue;
 }
 

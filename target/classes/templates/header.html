@@ -1,4 +1,4 @@
-<html xmlns:th="http://thymeleaf.org"
+<html xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <span th:fragment="header-css">
@@ -14,7 +14,7 @@
 
 <div class="header-custom" th:fragment="header">
 
-    <div  class="header-custom-logo" >
+    <div class="header-custom-logo">
         <img class="logo" width="500px" src="/img/logo.png">
     </div>
 
@@ -29,7 +29,8 @@
             <div id="navbar" class="collapse navbar-collapse">
 
                 <ul class="nav navbar-nav">
-                    <li class="active"><a th:href="@{/home}">Home</a></li>
+                    <li class="active"><a th:href="@{/home}"><span
+                            class="glyphicon glyphicon-home"></span>Home</a></li>
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
@@ -43,21 +44,24 @@
                             class="glyphicon glyphicon-log-in"></span> Panel administratora</a></li>
 
                     <li class="active" sec:authorize="${isAuthenticated()}"><a th:href="@{/categories}"><span
-                            class="glyphicon glyphicon-log-in"></span> Kateagorie</a></li>
+                            class="glyphicon glyphicon-th"></span> Kateagorie</a></li>
 
                     <li class="active" sec:authorize="${isAuthenticated()}"><a th:href="@{/details}"><span
                             class="glyphicon glyphicon-user"></span> Konto Użytkownika</a></li>
 
-                    <li class="active" ><a th:href="@{/contact/showForm}"><span
-                            class="glyphicon glyphicon-user"></span> Kontakt</a></li>
+                    <li class="active"><a th:href="@{/contact/showForm}"><span
+                            class="glyphicon glyphicon-envelope"></span> Kontakt</a></li>
 
                     <li class="active" sec:authorize="${isAuthenticated()}">
                         <a>
                             <form th:action="@{/logout}" method="post">
 
-                                <input class="logout" type="submit" value="Wyloguj">
+                                <input class="glyphicon glyphicon-log-out" type="submit" value="Wyloguj">
                             </form>
                         </a></li>
+                    <li class="active"><a th:href="@{/contact/showForm}"><span sec:authentication="name"></span></a>
+                    </li>
+
                 </ul>
 
             </div>

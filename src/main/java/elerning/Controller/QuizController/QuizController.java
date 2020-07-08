@@ -20,7 +20,6 @@ public class QuizController {
     private QuizService quizService;
 
 
-
     @GetMapping("/displayQuestion")
     private String displayQuestion(Model model, Integer questionId) {
         Question question = quizService.findQuestionById(questionId);
@@ -58,17 +57,30 @@ public class QuizController {
     }
 
     @PostMapping("/saveQuestionToQuiz")
-    private String saveQuestionToQuiz(@ModelAttribute("quiz") Quiz quiz,
-                                      @ModelAttribute("question") Question question) {
+    private String saveQuestionToQuiz(@ModelAttribute("quizId") int quizId,
+                                      @ModelAttribute("question") Question question,
+                                      Model model) {
+        Quiz quiz = quizService.findQuizById(quizId);
         quizService.addQuestionToDB(question);
         if (quiz.getQuestionsList() == null) {
             quiz.setQuestionsList(new HashSet<>());
             quiz.getQuestionsList().add(question);
-        }
-        else {
+            quizService.saveQuiz(quiz);
+        } else {
             quiz.getQuestionsList().add(question);
+            quizService.saveQuiz(quiz);
         }
+        Question newQuestion = new Question();
+        model.addAttribute("quiz", quiz);
+        model.addAttribute("question", newQuestion);
+        return "createQuiz";
+    }
 
+    @PostMapping("/quizCompleted")
+    private String quizCompleted(@ModelAttribute("quizId") int quizId,
+                                 Model model) {
+        Quiz quiz = quizService.findQuizById(quizId);
+        model.addAttribute("completedQuiz", quiz);
         return "createQuiz";
     }
 

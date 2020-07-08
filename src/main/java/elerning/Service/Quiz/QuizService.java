@@ -5,19 +5,21 @@ import elerning.Model.Quiz.Quiz;
 
 public interface QuizService {
 
+
+
     Question findQuestionById(int id);
 
     void addQuestionToDB(Question question);
 
     boolean validateAnswer(String answer, String correctAnswer);
 
-
-
     Quiz findQuizById(int id);
 
     void addQuizToDB(Quiz quiz);
 
     Quiz createNewQuiz(String quizName, int numberOfQuestions);
+
+    void saveQuiz(Quiz quiz);
 
 
 
