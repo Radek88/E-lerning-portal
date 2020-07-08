@@ -30,15 +30,14 @@
 
                 <ul class="nav navbar-nav">
                     <li class="active"><a th:href="@{/home}"><span
-                            class="glyphicon glyphicon-home"></span>Home</a></li>
+                            class="glyphicon glyphicon-home"></span> Home</a></li>
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
                     <li class="active" sec:authorize="${!isAuthenticated()}"><a th:href="@{/register}"><span
                             class="glyphicon glyphicon-user"></span> Rejstracja</a></li>
 
-                    <li class="active" sec:authorize="${!isAuthenticated()}"><a th:href="@{/login}"><span
-                            class="glyphicon glyphicon-log-in"></span> Zaloguj</a></li>
+
 
                     <li class="active" sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/user/adminPanel}"><span
                             class="glyphicon glyphicon-log-in"></span> Panel administratora</a></li>
@@ -46,12 +45,14 @@
                     <li class="active" sec:authorize="${isAuthenticated()}"><a th:href="@{/categories}"><span
                             class="glyphicon glyphicon-th"></span> Kateagorie</a></li>
 
-                    <li class="active" sec:authorize="${isAuthenticated()}"><a th:href="@{/details}"><span
-                            class="glyphicon glyphicon-user"></span> Konto Użytkownika</a></li>
-
                     <li class="active"><a th:href="@{/contact/showForm}"><span
                             class="glyphicon glyphicon-envelope"></span> Kontakt</a></li>
 
+                    <li class="active" sec:authorize="${isAuthenticated()}"><a th:href="@{/details}"><span
+                            class="glyphicon glyphicon-user" sec:authentication="name"> </span></a>
+                    </li>
+                    <li class="active" sec:authorize="${!isAuthenticated()}"><a th:href="@{/login}"><span
+                            class="glyphicon glyphicon-log-in"></span> Zaloguj</a></li>
                     <li class="active" sec:authorize="${isAuthenticated()}">
                         <a>
                             <form th:action="@{/logout}" method="post">
@@ -59,8 +60,6 @@
                                 <input class="glyphicon glyphicon-log-out" type="submit" value="Wyloguj">
                             </form>
                         </a></li>
-                    <li class="active"><a th:href="@{/contact/showForm}"><span sec:authentication="name"></span></a>
-                    </li>
 
                 </ul>
 
