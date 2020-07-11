@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns:th="http://thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Kontakt eLearn Development</title>
@@ -10,7 +10,7 @@
 <body>
 <div th:replace="header :: header"/>
 <div class="box">
-    <form role="form" method="post">
+    <form action="#" th:action="@{/contact/sendEmail}" method="post">
         <h1>Formularz kontaktowy:</h1>
         <label>
             <input type="text" th:placeholder="Imię" class="wpis" name="name" id="name"/>

@@ -1,9 +1,13 @@
-package elerning.Service.Questions;
+package elerning.Service.Quiz;
 
 import elerning.Model.Quiz.Question;
 import elerning.Model.Quiz.Quiz;
 
+import java.util.List;
+
 public interface QuizService {
+
+
 
     Question findQuestionById(int id);
 
@@ -11,11 +15,15 @@ public interface QuizService {
 
     boolean validateAnswer(String answer, String correctAnswer);
 
-    void addQuestionToQuiz(int questionId);
-
     Quiz findQuizById(int id);
 
     void addQuizToDB(Quiz quiz);
+
+    Quiz createNewQuiz(String quizName, int numberOfQuestions);
+
+    void saveQuiz(Quiz quiz);
+
+    List<Quiz> listAllQuiz();
 
 
 

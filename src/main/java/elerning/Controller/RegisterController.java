@@ -28,7 +28,7 @@ public class RegisterController {
 
     @PostMapping("/save")
     private String registerUser(@Valid @ModelAttribute("user") User user, BindingResult bindingResult) {
-        System.out.println("test");
+
         if (bindingResult.hasErrors()) {
             return "register";
         } else {

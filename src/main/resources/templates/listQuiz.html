@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>Quizy</title>
+    <link rel="stylesheet" th:href="@{/css/about.css}" href="/css/about.css"/>
+    <!--    <link rel="stylesheet" type="text" href="contact.css">-->
+    <div th:replace="header :: header-css"/>
+
+</head>
+<body>
+<div th:replace="header :: header"/>
+
+<div class="container">
+    <table class="table table-striped">
+
+        <thead>
+        <th>Nazwa Quizu</th>
+        </thead>
+        <tbody th:each="quiz : ${quizList}">
+        <td th:text="${quiz.quizName}"></td>
+        <td><a th:href="@{/quiz/startQuiz(quizId=${quiz.id})}">Zagraj</a></td>
+
+
+        </tbody>
+
+
+
+    </table>
+
+
+</div>
+
+</body>
+</html>
