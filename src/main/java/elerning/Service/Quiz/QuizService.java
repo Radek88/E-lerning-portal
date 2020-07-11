@@ -3,6 +3,8 @@ package elerning.Service.Quiz;
 import elerning.Model.Quiz.Question;
 import elerning.Model.Quiz.Quiz;
 
+import java.util.List;
+
 public interface QuizService {
 
 
@@ -20,6 +22,8 @@ public interface QuizService {
     Quiz createNewQuiz(String quizName, int numberOfQuestions);
 
     void saveQuiz(Quiz quiz);
+
+    List<Quiz> listAllQuiz();
 
 
 

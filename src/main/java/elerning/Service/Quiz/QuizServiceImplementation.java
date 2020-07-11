@@ -7,6 +7,8 @@ import elerning.Repository.Quiz.QuizRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class QuizServiceImplementation implements QuizService {
 
@@ -53,6 +55,11 @@ public class QuizServiceImplementation implements QuizService {
     public Quiz findQuizById(int id) {
 
         return quizRepository.findById(id);
+    }
+
+    @Override
+    public List<Quiz> listAllQuiz() {
+        return quizRepository.findAll();
     }
 
 }

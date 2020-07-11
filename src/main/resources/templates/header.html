@@ -33,17 +33,28 @@
                             class="glyphicon glyphicon-home"></span> Home</a></li>
                 </ul>
 
-                <ul class="nav navbar-nav navbar-right">
+                <div class="nav navbar-nav navbar-right">
                     <li class="active" sec:authorize="${!isAuthenticated()}"><a th:href="@{/register}"><span
                             class="glyphicon glyphicon-user"></span> Rejstracja</a></li>
-
 
 
                     <li class="active" sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/user/adminPanel}"><span
                             class="glyphicon glyphicon-log-in"></span> Panel administratora</a></li>
 
-                    <li class="active" sec:authorize="${isAuthenticated()}"><a th:href="@{/categories}"><span
-                            class="glyphicon glyphicon-th"></span> Kateagorie</a></li>
+                    <li class="active" sec:authorize="${isAuthenticated()}">
+
+                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="glyphicon glyphicon-th-list"></span>
+                            Kategorie
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item" th:href="@{/quiz/listQuiz}">Quizy</a>
+                            <a class="dropdown-item" href="#">Wideokursy</a>
+                            <a class="dropdown-item" href="#">Materiały</a>
+                            <a class="dropdown-item" href="#">- Kategoria -</a>
+                            <a class="dropdown-item" href="#">- Kategoria -</a>
+                        </div>
+                    </li>
 
                     <li class="active"><a th:href="@{/contact/showForm}"><span
                             class="glyphicon glyphicon-envelope"></span> Kontakt</a></li>
@@ -56,15 +67,17 @@
                     <li class="active" sec:authorize="${isAuthenticated()}">
                         <a>
                             <form th:action="@{/logout}" method="post">
-
                                 <input class="glyphicon glyphicon-log-out" type="submit" value="Wyloguj">
                             </form>
                         </a></li>
 
-                </ul>
 
+
+
+                    </ul>
+
+                </div>
             </div>
-        </div>
     </nav>
 </div>
 

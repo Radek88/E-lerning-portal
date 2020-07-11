@@ -2,6 +2,7 @@ package elerning.Model.Quiz;
 
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -16,12 +17,12 @@ public class Quiz {
 
     private int numberOfQuestions;
 
-    @OneToMany(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH},fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.LAZY,cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
     @JoinColumn(name = "quiz_id")
-    private Set<Question> questionsList;
+    private List<Question> questionsList;
 
 
-    public Quiz(int id, String quizName, Set<Question> questionsList) {
+    public Quiz(int id, String quizName, List<Question> questionsList) {
         this.quizName = quizName;
         this.questionsList = questionsList;
     }
@@ -50,11 +51,11 @@ public class Quiz {
         this.quizName = quizName;
     }
 
-    public Set<Question> getQuestionsList() {
+    public List<Question> getQuestionsList() {
         return questionsList;
     }
 
-    public void setQuestionsList(Set<Question> questionsList) {
+    public void setQuestionsList(List<Question> questionsList) {
         this.questionsList = questionsList;
     }
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl" xmlns:th="http://thymeleaf.org">
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>eLearning - ucz się razem z nami! :) </title>
@@ -12,15 +12,22 @@
 
 
 <div class="container">
-    <form th:action="@{/quiz/answer}" th:object="${question}" method="post">
+    <table class="table table-striped">
+    <form th:action="@{/quiz/startQuiz}" th:object="${question}" method="post">
+        <tr>
         <p class="quiz-question" th:text="*{questionText}"></p>
+        </tr>
         <p class="quiz-answer"><input class="radio-quiz" type="radio" th:name="answer" th:value="A" th:text="*{A}"></p>
+        </tr>
         <p class="quiz-answer"><input class="radio-quiz" type="radio" th:name="answer" th:value="B" th:text="*{B}"></p>
         <p class="quiz-answer"><input class="radio-quiz" type="radio" th:name="answer" th:value="C" th:text="*{C}"></p>
         <p class="quiz-answer"><input class="radio-quiz" type="radio" th:name="answer" th:value="D" th:text="*{D}"></p>
         <input type="hidden" th:name="correct" th:value="*{correct}">
+        <input type="hidden" th:name="quizId" th:value="${quiz.id}">
+        <input type="hidden" th:name="questionId" th:value="${question.id}">
         <p><input type="submit"></p>
     </form>
+    </table>
 </div>
 
 

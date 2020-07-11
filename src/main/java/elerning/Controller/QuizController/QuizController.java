@@ -10,7 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
-import java.util.HashSet;
+import javax.mail.internet.InternetAddress;
+import java.util.*;
 
 @RequestMapping("/quiz")
 @Controller
@@ -27,16 +28,16 @@ public class QuizController {
         return "displayQuestion";
     }
 
-    @PostMapping("/answer")
+   /* @PostMapping("/answer")
     private String getAnswer(
             @RequestParam(value = "correct") String correctAnswer,
             @RequestParam(value = "answer") String answer,
             Model model) {
-        Integer questionId = 1;
+
         boolean isAnswerCorrect = quizService.validateAnswer(answer, correctAnswer);
         model.addAttribute(quizService.findQuestionById(2));
-        return displayQuestion(model, questionId);
-    }
+        return displayQuestion(model);
+    }*/
 
     @GetMapping("/createQuiz")
     private String createQuizForm() {
@@ -63,7 +64,7 @@ public class QuizController {
         Quiz quiz = quizService.findQuizById(quizId);
         quizService.addQuestionToDB(question);
         if (quiz.getQuestionsList() == null) {
-            quiz.setQuestionsList(new HashSet<>());
+            quiz.setQuestionsList(new LinkedList<>());
             quiz.getQuestionsList().add(question);
             quizService.saveQuiz(quiz);
         } else {
@@ -82,6 +83,43 @@ public class QuizController {
         Quiz quiz = quizService.findQuizById(quizId);
         model.addAttribute("completedQuiz", quiz);
         return "createQuiz";
+    }
+
+    @GetMapping("/listQuiz")
+    private String listQuiz(Model model) {
+        List<Quiz> quizList = quizService.listAllQuiz();
+        model.addAttribute("quizList", quizList);
+
+        return "listQuiz";
+    }
+
+    //TODO obsłużyć skrajny przypadek z quizem bez żadnego pytania.
+    //TODO zaimplementować sprawdzanie poprawnych odpowiedzi oraz ich zliczanie
+
+    @RequestMapping("/startQuiz")
+    private String startQuiz(Model model,
+                             @RequestParam(value = "quizId") Integer quizId,
+                             @RequestParam(value = "questionId", required = false) Integer questionId,
+                             @RequestParam(value = "correct", required = false) String correctAnswer,
+                             @RequestParam(value = "answer", required = false) String answer) {
+
+        Quiz quiz = quizService.findQuizById(quizId);
+        model.addAttribute("quiz", quiz);
+        if (questionId == null) {
+            model.addAttribute("question", quiz.getQuestionsList().get(0));
+            return "displayQuestion";
+
+
+        } else {
+            Question actualQuestion = quizService.findQuestionById(questionId);
+            Integer nextQuestionOnList = quiz.getQuestionsList().indexOf(actualQuestion);
+
+            if (nextQuestionOnList == quiz.getQuestionsList().size()-1) {
+                return "quizResult";
+            }
+            Integer nextQuestionId = quiz.getQuestionsList().get(nextQuestionOnList+1).getId();
+            return displayQuestion(model, nextQuestionId);
+        }
     }
 
 

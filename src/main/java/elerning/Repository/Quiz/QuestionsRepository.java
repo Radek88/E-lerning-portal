@@ -13,4 +13,6 @@ public interface QuestionsRepository extends JpaRepository<Question,Integer> {
 
     List<Question> findAll();
 
+
+
 }
