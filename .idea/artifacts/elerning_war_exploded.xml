@@ -65,7 +65,7 @@
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.module:jackson-module-parameter-names:2.11.1" />
           <element id="library" level="project" name="Maven: org.springframework:spring-web:5.3.0-M1" />
           <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:5.3.0-M1" />
-          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:8.0.20" />
+          <element id="library" level="project" name="Maven: org.postgresql:postgresql:42.2.14" />
           <element id="file-copy" path="$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-tomcat/2.4.0-SNAPSHOT/spring-boot-starter-tomcat-2.4.0-20200710.150402-182.jar" output-file-name="spring-boot-starter-tomcat-2.4.0-SNAPSHOT.jar" />
           <element id="library" level="project" name="Maven: jakarta.annotation:jakarta.annotation-api:1.3.5" />
           <element id="library" level="project" name="Maven: org.apache.tomcat.embed:tomcat-embed-core:9.0.36" />
