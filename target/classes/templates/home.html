@@ -6,10 +6,25 @@
     <link rel="stylesheet" th:href="@{/css/home.css}" href="css/home.css"/>
     <div th:replace="header :: header-css"/>
 </head>
-<body>
+
 <div th:replace="header :: header"/>
+
 <div class="main">
     <!--cards -->
+    <div class="card">
+        <div class="image">
+            <img src="/img/javapodstawy.png">
+        </div>
+        <div class="title">
+            <h1>
+                Java - podstawy</h1>
+        </div>
+        <div class="des">
+            <p>Sprawdź swoją wiedzę z zakresu podstaw Javy!</p>
+            <button><a href="course1" > Zaczynam!</a></button>
+        </div>
+    </div>
+
     <div class="card">
         <div class="image">
             <img src="/img/javapodstawy.png">
@@ -23,48 +38,21 @@
             <button class="nav-link" ><a href="course1" > Zaczynam!</a></button>
         </div>
     </div>
-    <!--cards -->
+
     <div class="card">
         <div class="image">
-            <img src="https://cdn.pixabay.com/photo/2018/01/09/03/49/the-natural-scenery-3070808_1280.jpg">
+            <img src="/img/javapodstawy.png">
         </div>
         <div class="title">
             <h1>
-                Write title Here</h1>
+                Java - podstawy</h1>
         </div>
         <div class="des">
-            <p>You can Add Desccription Here...</p>
-            <button>Read More...</button>
+            <p>Sprawdź swoją wiedzę z zakresu podstaw Javy!</p>
+            <button class="nav-link" ><a href="course1" > Zaczynam!</a></button>
         </div>
     </div>
-    <!--cards -->
-    <div class="card">
-        <div class="image">
-            <img src="https://cdn.pixabay.com/photo/2018/01/09/03/49/the-natural-scenery-3070808_1280.jpg">
-        </div>
-        <div class="title">
-            <h1>
-                Write title Here</h1>
-        </div>
-        <div class="des">
-            <p>You can Add Desccription Here...</p>
-            <button>Read More...</button>
-        </div>
-    </div>
-    <!--cards -->
-    <div class="card">
-        <div class="image">
-            <img src="https://cdn.pixabay.com/photo/2015/11/07/11/41/lake-1031405_1280.jpg">
-        </div>
-        <div class="title">
-            <h1>
-                Write title Here</h1>
-        </div>
-        <div class="des">
-            <p>You can Add Desccription Here...</p>
-            <button>Read More...</button>
-        </div>
-    </div>
+
 </div>
 </body>
 </html>

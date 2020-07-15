@@ -1,3 +1,128 @@
+/*logo*/
+
+.header-custom {
+    width: 100%;
+
+}
+
+.header-custom-logo {
+    background: transparent;
+}
+
+.logo img {
+
+    height: 300px;
+    padding: 0px;
+    margin: 0px 0px;
+
+}
+
+p {
+    text-align: center;
+}
+
+
+/*navbar*/
+
+.navbar {
+
+    list-style-type: none;
+    padding: 0;
+    position: relative;
+    min-height: 100%;
+    margin: 0 0 0px;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.navbar-rigth {
+    float: right;
+
+}
+
+.navbar-left {
+    float: left;
+
+}
+
+.navbar a {
+    display: inline-block;
+    background-color: transparent;
+    padding: 10px;
+    font-family: Calibri;
+    font-size: large;
+
+}
+
+.navbar a:hover {
+    background: rgba(0, 0, 0, 0.35);
+}
+
+.navbar-bar {
+    height: 42px;
+
+}
+
+/*homepage cards*/
+.card {
+
+    border-radius: 20px;
+    padding: 3%;
+    margin: 1% 1%;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    text-align: center;
+    font-family: arial;
+    background-color: rgba(0,0,0,0.5);
+
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3);
+}
+
+.des {
+    color: grey;
+    font-size: 22px;
+}
+
+.card button {
+
+    border-radius: 20px;
+    outline: 0;
+    padding: 1%;
+    color: white;
+    background-color: initial;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+}
+
+.card button:hover {
+    opacity: 0.7;
+}
+
+.image img {
+
+    max-height: 100%;
+    max-width: 100%;
+
+}
+
+.title {
+
+
+}
+
+.main{
+
+    display: -webkit-inline-box;
+    padding: 5% 3%;
+
+}
+
+
+
 tr:nth-child(even) {
     background: #FFFFFF
 }
@@ -6,11 +131,47 @@ tr:nth-child(odd) {
     background: #BBBBBB
 }
 
+body {
+    font-family: Calibri;
+
+}
+
 .nav {
     position: relative;
     height: 100%;
+    font-size: larger;
 }
 
+.nav :hover {
+    position: relative;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+a {
+    color: navajowhite;
+    font-size: larger;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+a:hover {
+    background-color: transparent;
+}
+
+.active :hover {
+    background-color: #09c332;
+
+}
+
+
+/*about pages*/
+div.about {
+    display: inline-block;
+}
+
+
+/*about pages*/
 .block {
     text-align: center;
     border-style: solid;
@@ -19,9 +180,11 @@ tr:nth-child(odd) {
 }
 
 
-#wrapper {
+.content {
     width: 100%;
     margin-top: 0px;
+    width: 80%;
+    padding: 15px 15px;
 }
 
 #header {
@@ -42,7 +205,8 @@ h3 {
     text-align: center;
     font-size: 35px;
 }
-h6{
+
+h6 {
     text-align: center;
     font-size: 15px;
     opacity: 50%;
@@ -66,17 +230,6 @@ h6{
 
 }
 
-.navbar-custom {
-    border-radius: 4px;
-}
-
-.navbar-custom {
-    osition: relative;
-    min-height: 50px;
-    margin-bottom: 0px;
-    border: 3px solid cornflowerblue;
-}
-
 
 .logout {
     padding: 0;
@@ -92,47 +245,16 @@ h6{
     color: rebeccapurple
 }
 
-.header-custom {
-    width: 100%;
-
-}
-
-.header-custom-logo {
-    background: lavender;
-    border-left: 3px solid cornflowerblue;
-    border-right: 3px solid cornflowerblue;
-    border-top: 3px solid cornflowerblue;
-}
-
-.logo {
-
-    padding: 0px;
-    margin: 0px 100px;
-
-}
-
-p {
-    text-align: center;
-}
-
-a {
-    color: #032856;
-    text-decoration: none;
-    background-color: transparent;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-}
 
 form, input, select, textarea {
     margin: 0;
     padding: 0;
 }
-input{
+
+input {
     size: 500px;
 }
+
 div.box {
     margin: 0 auto;
     width: 300px;
@@ -186,39 +308,4 @@ div.box .button {
 
 }
 
-.navbar-nav>li>.dropdown-menu {
-    margin-top: 0;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-}
-@media (min-width: 768px){
-    .navbar-right .dropdown-menu {
-        right: 0;
-        left: auto;
-    }
-    .open>.dropdown-menu {
-        display: grid;
-    }
-    .dropdown-menu {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        z-index: 1000;
-        display: none;
-        float: left;
-        min-width: 160px;
-        padding: 5px 0;
-        margin: 2px 0 0;
-        font-size: 14px;
-        text-align: left;
-        list-style: none;
-        background-color: #e6e6fa;
-        font-family: sans-serif;
-        -webkit-background-clip: padding-box;
-        background-clip: padding-box;
-        border: 1px solid #ccc;
-        border: 1px solid rgba(0,0,0,.15);
-        border-radius: 4px;
-        -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
-        box-shadow: 0 6px 12px rgba(0,0,0,.175);}}
 
