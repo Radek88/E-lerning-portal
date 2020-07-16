@@ -1,3 +1,8 @@
+.element {
+    position: relative;
+}
+
+
 /*logo*/
 
 .header-custom {
@@ -34,6 +39,17 @@ p {
     background: rgba(0, 0, 0, 0.3);
 }
 
+.navbar a {
+    display: inline-block;
+    background-color: transparent;
+    padding: 10px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: large;
+    color: white;
+    text-decoration: none;
+
+}
+
 .navbar-rigth {
     float: right;
 
@@ -41,15 +57,6 @@ p {
 
 .navbar-left {
     float: left;
-
-}
-
-.navbar a {
-    display: inline-block;
-    background-color: transparent;
-    padding: 10px;
-    font-family: Calibri;
-    font-size: large;
 
 }
 
@@ -62,26 +69,48 @@ p {
 
 }
 
+.dropdown {
+
+
+}
+
+#menu #list {
+    max-height: 0;
+    transition: max-height 0.15s ease-out;
+    overflow: hidden;
+    background: rgba(78, 80, 78, 0.8);
+    position: absolute;
+    padding-inline-start: 0;
+}
+
+#menu:hover #list {
+    max-height: 500px;
+    transition: max-height 0.25s ease-in;
+}
+
+
 /*homepage cards*/
 .card {
 
-    border-radius: 20px;
-    padding: 3%;
+    border-radius: 5px;
+    padding: 1%;
     margin: 1% 1%;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     max-width: 300px;
     text-align: center;
-    font-family: arial;
-    background-color: rgba(0,0,0,0.5);
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #48606e;
+    background-color: rgba(165, 165, 165, 0.8);
+    border: 1px solid lightslategray;
 
 }
 
 .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3);
+    border: 1px solid lightgrey;
 }
 
 .des {
-    color: grey;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #48606e;
     font-size: 22px;
 }
 
@@ -95,7 +124,9 @@ p {
     text-align: center;
     cursor: pointer;
     width: 100%;
-    font-size: 18px;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #48606e;
+    font-size: 22px;
 }
 
 .card button:hover {
@@ -103,18 +134,20 @@ p {
 }
 
 .image img {
-
-    max-height: 100%;
-    max-width: 100%;
+    border-radius: 5px;
+    min-height: 300px;
+    min-width: 300px;
+    max-height: 300px;
+    max-width: 300px;
 
 }
 
 .title {
-
+    font-family: 'Source Sans Pro', sans-serif;
 
 }
 
-.main{
+.main {
 
     display: -webkit-inline-box;
     padding: 5% 3%;
@@ -122,111 +155,99 @@ p {
 }
 
 
+/*Login/register form*/
+.usrForm {
+    display: block;
+    text-align: center;
+    border: none !important;
+
+}
+
+.form-input {
+    padding: 1%;
+
+}
+
+
+.usrForm .form-input input {
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color: white !important;
+    padding: 1%;
+    font-size: larger;
+    border-radius: 5px;
+    border-style: hidden;
+    background-image: none !important;
+    -webkit-appearance: initial;
+
+}
+
+.usrForm textarea {
+    border-radius: 10px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: larger;
+    width: 40em;
+    height: 6em;
+    text-align: start;
+}
+
+.usrForm h1 {
+    color: white;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.usrForm div {
+    border: none;
+}
+
+input:-internal-autofill-selected {
+
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color: white !important;
+    padding: 1%;
+    font-size: larger;
+    border-radius: 5px;
+    border-style: hidden;
+
+}
+
+/*table*/
+.container {
+    padding: 10px 10%;
+
+
+}
+
+.table {
+    width: 90%;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: larger;
+
+}
+
+th {
+
+    min-height: 4em;
+    background-color: whitesmoke;
+    border: lightgray;
+}
+thead{
+
+
+}
+
 
 tr:nth-child(even) {
-    background: #FFFFFF
+    background: #bcccd6;
+    height: 2em;
 }
+
 
 tr:nth-child(odd) {
-    background: #BBBBBB
+    background: #99a5ff;
+    height: 2em;
 }
-
-body {
-    font-family: Calibri;
-
-}
-
-.nav {
-    position: relative;
-    height: 100%;
-    font-size: larger;
-}
-
-.nav :hover {
-    position: relative;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.1);
-}
-
-a {
-    color: navajowhite;
-    font-size: larger;
-    text-decoration: none;
-    background-color: transparent;
-}
-
-a:hover {
-    background-color: transparent;
-}
-
-.active :hover {
-    background-color: #09c332;
-
-}
-
-
-/*about pages*/
-div.about {
-    display: inline-block;
-}
-
-
-/*about pages*/
-.block {
+.table td{
     text-align: center;
-    border-style: solid;
-    background: black;
-    margin: 0 auto;
-}
-
-
-.content {
-    width: 100%;
-    margin-top: 0px;
-    width: 80%;
-    padding: 15px 15px;
-}
-
-#header {
-    width: 70%;
-    background: #09c332;
-    margin-top: 0px;
-    padding: 15px 0px 15px 15px;
-}
-
-#header h2 {
-    width: 100%;
-    margin: auto;
-    color: #FFFFFF;
-
-}
-
-h3 {
-    text-align: center;
-    font-size: 35px;
-}
-
-h6 {
-    text-align: center;
-    font-size: 15px;
-    opacity: 50%;
-}
-
-#container {
-    width: 100%;
-    margin: auto
-}
-
-#container h3 {
-    color: #0000;
-}
-
-#container #content {
-    margin-top: 20px;
-}
-
-.navbar-inverse-custom {
-    background-color: lavender;
 
 }
 
@@ -245,15 +266,6 @@ h6 {
     color: rebeccapurple
 }
 
-
-form, input, select, textarea {
-    margin: 0;
-    padding: 0;
-}
-
-input {
-    size: 500px;
-}
 
 div.box {
     margin: 0 auto;

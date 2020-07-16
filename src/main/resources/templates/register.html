@@ -7,37 +7,43 @@
 </head>
 <body>
 <div th:replace="header :: header"/>
-<div class="container">
-    <div class="row" style="margin-top:20px">
-        <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+<div class="usrForm">
+    <div>
+        <div>
 
             <form th:action="@{/save}" th:object="${user}" method="post">
-                <fieldset>
-                    <h1>Please provide account details</h1>
-                    <div class="form-group">
-                        <input type="text" class="form-control input-lg" placeholder="Login" th:field="*{login}" required="true" autofocus="true"/>
-                        <span th:if="${#fields.hasErrors('login')}" th:errors="*{login}"  class="text-danger"> Login Error</span>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control input-lg" placeholder="First Name" required="true" th:field="*{surname}"/>
-                        <span th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}" class="text-danger"> First Name error</span>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control input-lg" placeholder="Last Name" required="true" th:field="*{name}"/>
-                        <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="text-danger"> Last Name error</span>
-                    </div>
-                    <div class="form-group">
-                        <input type="password" class="form-control input-lg" placeholder="Password" required="true" th:field="*{password}"/>
-                        <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="text-danger"> Password error</span>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control input-lg" placeholder="Email" required="true" th:field="*{email}"/>
-                        <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-danger"> Email Error</span>
-                    </div>
-                    <div class="form-group" >
-                        <input type="submit" class="btn btn-lg btn-primary btn-block" value="Register"/>
-                    </div>
-                </fieldset>
+
+                <h1>Please provide account details</h1>
+                <div class="form-input">
+                    <input type="text" placeholder="Login" th:field="*{login}" required="true" autofocus="true"/>
+                    <span th:if="${#fields.hasErrors('login')}" th:errors="*{login}"
+                          class="text-danger"> Login Error</span>
+                </div>
+                <div class="form-input">
+                    <input type="text" placeholder="First Name" required="true" th:field="*{surname}"/>
+                    <span th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}" class="text-danger"> First Name error</span>
+                </div>
+                <div class="form-input">
+                    <input type="text" class="form-control input-lg" placeholder="Last Name" required="true"
+                           th:field="*{name}"/>
+                    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
+                          class="text-danger"> Last Name error</span>
+                </div>
+                <div class="form-input">
+                    <input type="password" class="form-control input-lg" placeholder="Password" required="true"
+                           th:field="*{password}"/>
+                    <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="text-danger"> Password error</span>
+                </div>
+                <div class="form-input">
+                    <input type="text" class="form-control input-lg" placeholder="Email" required="true"
+                           th:field="*{email}"/>
+                    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
+                          class="text-danger"> Email Error</span>
+                </div>
+                <div class="form-input">
+                    <input type="submit"  value="Register"/>
+                </div>
+
             </form>
         </div>
     </div>

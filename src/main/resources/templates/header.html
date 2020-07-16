@@ -3,6 +3,7 @@
 <head>
     <span th:fragment="header-css">
         <link rel="stylesheet" th:href="@{/css/stylesheet.css}" href="css/stylesheet.css"/>
+        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
     </span>
 
 </head>
@@ -44,9 +45,19 @@
             <li class="navbar navbar-rigth" sec:authorize="hasAuthority('ADMIN')">
                 <a th:href="@{/user/adminPanel}">Panel administratora</a></li>
 
-            <li class="navbar navbar-rigth" sec:authorize="${isAuthenticated()}">
-                <a th:href="@{/quiz/listQuiz}">Quizy</a></li>
-            <li class="navbar navbar-rigth">
+
+
+            <div id="menu" sec:authorize="${isAuthenticated()}" class="navbar navbar-rigth">
+                <a>Materiały</a>
+                <ul id="list">
+                    <li class="navbar" >
+                        <a th:href="@{/quiz/listQuiz}">Materiały filmowe</a></li>
+                    <li class="navbar" >
+                        <a th:href="@{/quiz/listQuiz}">Artykuły</a></li>
+                    <li class="navbar" >
+                        <a th:href="@{/quiz/listQuiz}">Quizy</a></li>
+                </ul>
+            </div>
 
             <li class="navbar navbar-rigth" sec:authorize="${!isAuthenticated()}">
                 <a th:href="@{/register}">Rejstracja</a></li>
