@@ -1,80 +1,254 @@
-tr:nth-child(even) {
-    background: #FFFFFF
+.element {
+    position: relative;
 }
+
+
+/*logo*/
+
+.header-custom {
+    width: 100%;
+
+}
+
+.header-custom-logo {
+    background: transparent;
+}
+
+.logo img {
+
+    height: 300px;
+    padding: 0px;
+    margin: 0px 0px;
+
+}
+
+p {
+    text-align: center;
+}
+
+
+/*navbar*/
+
+.navbar {
+
+    list-style-type: none;
+    padding: 0;
+    position: relative;
+    min-height: 100%;
+    margin: 0 0 0px;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.navbar a {
+    display: inline-block;
+    background-color: transparent;
+    padding: 10px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: large;
+    color: white;
+    text-decoration: none;
+
+}
+
+.navbar-rigth {
+    float: right;
+
+}
+
+.navbar-left {
+    float: left;
+
+}
+
+.navbar a:hover {
+    background: rgba(0, 0, 0, 0.35);
+}
+
+.navbar-bar {
+    height: 42px;
+
+}
+
+.dropdown {
+
+
+}
+
+#menu #list {
+    max-height: 0;
+    transition: max-height 0.15s ease-out;
+    overflow: hidden;
+    background: rgba(78, 80, 78, 0.8);
+    position: absolute;
+    padding-inline-start: 0;
+}
+
+#menu:hover #list {
+    max-height: 500px;
+    transition: max-height 0.25s ease-in;
+}
+
+
+/*homepage cards*/
+.card {
+
+    border-radius: 5px;
+    padding: 1%;
+    margin: 1% 1%;
+    max-width: 300px;
+    text-align: center;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #48606e;
+    background-color: rgba(165, 165, 165, 0.8);
+    border: 1px solid lightslategray;
+
+}
+
+.card:hover {
+    border: 1px solid lightgrey;
+}
+
+.des {
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #48606e;
+    font-size: 22px;
+}
+
+.card button {
+
+    border-radius: 20px;
+    outline: 0;
+    padding: 1%;
+    color: white;
+    background-color: initial;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #48606e;
+    font-size: 22px;
+}
+
+.card button:hover {
+    opacity: 0.7;
+}
+
+.image img {
+    border-radius: 5px;
+    min-height: 300px;
+    min-width: 300px;
+    max-height: 300px;
+    max-width: 300px;
+
+}
+
+.title {
+    font-family: 'Source Sans Pro', sans-serif;
+
+}
+
+.main {
+
+    display: -webkit-inline-box;
+    padding: 5% 3%;
+
+}
+
+
+/*Login/register form*/
+.usrForm {
+    display: block;
+    text-align: center;
+    border: none !important;
+
+}
+
+.form-input {
+    padding: 1%;
+
+}
+
+
+.usrForm .form-input input {
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color: white !important;
+    padding: 1%;
+    font-size: larger;
+    border-radius: 5px;
+    border-style: hidden;
+    background-image: none !important;
+    -webkit-appearance: initial;
+
+}
+
+.usrForm textarea {
+    border-radius: 10px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: larger;
+    width: 40em;
+    height: 6em;
+    text-align: start;
+}
+
+.usrForm h1 {
+    color: white;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.usrForm div {
+    border: none;
+}
+
+input:-internal-autofill-selected {
+
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color: white !important;
+    padding: 1%;
+    font-size: larger;
+    border-radius: 5px;
+    border-style: hidden;
+
+}
+
+/*table*/
+.container {
+    padding: 10px 10%;
+
+
+}
+
+.table {
+    width: 90%;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: larger;
+
+}
+
+th {
+
+    min-height: 4em;
+    background-color: whitesmoke;
+    border: lightgray;
+}
+thead{
+
+
+}
+
+
+tr:nth-child(even) {
+    background: #bcccd6;
+    height: 2em;
+}
+
 
 tr:nth-child(odd) {
-    background: #BBBBBB
+    background: #99a5ff;
+    height: 2em;
 }
-
-.nav {
-    position: relative;
-    height: 100%;
-}
-
-.block {
+.table td{
     text-align: center;
-    border-style: solid;
-    background: black;
-    margin: 0 auto;
-}
 
-
-#wrapper {
-    width: 100%;
-    margin-top: 0px;
-}
-
-#header {
-    width: 70%;
-    background: #09c332;
-    margin-top: 0px;
-    padding: 15px 0px 15px 15px;
-}
-
-#header h2 {
-    width: 100%;
-    margin: auto;
-    color: #FFFFFF;
-
-}
-
-h3 {
-    text-align: center;
-    font-size: 35px;
-}
-h6{
-    text-align: center;
-    font-size: 15px;
-    opacity: 50%;
-}
-
-#container {
-    width: 100%;
-    margin: auto
-}
-
-#container h3 {
-    color: #0000;
-}
-
-#container #content {
-    margin-top: 20px;
-}
-
-.navbar-inverse-custom {
-    background-color: lavender;
-
-}
-
-.navbar-custom {
-    border-radius: 4px;
-}
-
-.navbar-custom {
-    osition: relative;
-    min-height: 50px;
-    margin-bottom: 0px;
-    border: 3px solid cornflowerblue;
 }
 
 
@@ -92,47 +266,7 @@ h6{
     color: rebeccapurple
 }
 
-.header-custom {
-    width: 100%;
 
-}
-
-.header-custom-logo {
-    background: lavender;
-    border-left: 3px solid cornflowerblue;
-    border-right: 3px solid cornflowerblue;
-    border-top: 3px solid cornflowerblue;
-}
-
-.logo {
-
-    padding: 0px;
-    margin: 0px 100px;
-
-}
-
-p {
-    text-align: center;
-}
-
-a {
-    color: #032856;
-    text-decoration: none;
-    background-color: transparent;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-}
-
-form, input, select, textarea {
-    margin: 0;
-    padding: 0;
-}
-input{
-    size: 500px;
-}
 div.box {
     margin: 0 auto;
     width: 300px;
@@ -186,39 +320,4 @@ div.box .button {
 
 }
 
-.navbar-nav>li>.dropdown-menu {
-    margin-top: 0;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-}
-@media (min-width: 768px){
-    .navbar-right .dropdown-menu {
-        right: 0;
-        left: auto;
-    }
-    .open>.dropdown-menu {
-        display: grid;
-    }
-    .dropdown-menu {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        z-index: 1000;
-        display: none;
-        float: left;
-        min-width: 160px;
-        padding: 5px 0;
-        margin: 2px 0 0;
-        font-size: 14px;
-        text-align: left;
-        list-style: none;
-        background-color: #e6e6fa;
-        font-family: sans-serif;
-        -webkit-background-clip: padding-box;
-        background-clip: padding-box;
-        border: 1px solid #ccc;
-        border: 1px solid rgba(0,0,0,.15);
-        border-radius: 4px;
-        -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
-        box-shadow: 0 6px 12px rgba(0,0,0,.175);}}
 

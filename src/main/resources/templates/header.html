@@ -2,85 +2,71 @@
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <span th:fragment="header-css">
-        <!-- this is header-css -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link rel="stylesheet" th:href="@{/css/stylesheet.css}" href="css/stylesheet.css"/>
+        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
     </span>
 
 </head>
-<body>
 
 <div class="header-custom" th:fragment="header">
+    <body style="background-image: url('/img/background.jpg');background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center;
+      background-size: cover;">
+
 
     <div class="header-custom-logo">
-        <img class="logo" width="500px" src="/img/logo.png">
+        <img class="logo" width="300px" src="/img/logo.png">
     </div>
+    <nav class="navbar-bar">
+        <ul class="navbar">
+            <li class="navbar navbar-left"><a th:href="@{/home}">E-Learn!</a></li>
 
-    <!-- this is header -->
-    <nav class="navbar-custom navbar-inverse-custom">
 
-        <div class="container">
-            <div class="navbar-header-custom">
-                <a class="navbar-brand" th:href="@{/about}">E-Learn!</a>
-            </div>
+            <li class="navbar navbar-rigth" sec:authorize="${isAuthenticated()}">
+                <a th:href="@{/details}"><span
+                        sec:authentication="name"> </span></a>
+            </li>
 
-            <div id="navbar" class="collapse navbar-collapse">
+            <li class="navbar navbar-left" >
+            <a th:href="@{/contact/showForm}">Kontakt</a>
+            </li>
 
-                <ul class="nav navbar-nav">
-                    <li class="active"><a th:href="@{/home}"><span
-                            class="glyphicon glyphicon-home"></span> Home</a></li>
+            <li class="navbar navbar-rigth" sec:authorize="${!isAuthenticated()}">
+                <a th:href="@{/login}">Zaloguj</a></li>
+
+            <li class="navbar navbar-rigth" sec:authorize="${isAuthenticated()}">
+                <a>
+                    <form th:action="@{/logout}" method="post">
+                        <input type="submit" value="Wyloguj">
+                    </form>
+                </a></li>
+
+            <li class="navbar navbar-rigth" sec:authorize="hasAuthority('ADMIN')">
+                <a th:href="@{/user/adminPanel}">Panel administratora</a></li>
+
+
+
+            <div id="menu" sec:authorize="${isAuthenticated()}" class="navbar navbar-rigth">
+                <a>Materiały</a>
+                <ul id="list">
+                    <li class="navbar" >
+                        <a th:href="@{/quiz/listQuiz}">Materiały filmowe</a></li>
+                    <li class="navbar" >
+                        <a th:href="@{/quiz/listQuiz}">Artykuły</a></li>
+                    <li class="navbar" >
+                        <a th:href="@{/quiz/listQuiz}">Quizy</a></li>
                 </ul>
-
-                <div class="nav navbar-nav navbar-right">
-                    <li class="active" sec:authorize="${!isAuthenticated()}"><a th:href="@{/register}"><span
-                            class="glyphicon glyphicon-user"></span> Rejstracja</a></li>
-
-
-                    <li class="active" sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/user/adminPanel}"><span
-                            class="glyphicon glyphicon-log-in"></span> Panel administratora</a></li>
-
-                    <li class="active" sec:authorize="${isAuthenticated()}">
-
-                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="glyphicon glyphicon-th-list"></span>
-                            Kategorie
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <a class="dropdown-item" th:href="@{/quiz/listQuiz}">Quizy</a>
-                            <a class="dropdown-item" href="#">Wideokursy</a>
-                            <a class="dropdown-item" href="#">Materiały</a>
-                            <a class="dropdown-item" href="#">- Kategoria -</a>
-                            <a class="dropdown-item" href="#">- Kategoria -</a>
-                        </div>
-                    </li>
-
-                    <li class="active"><a th:href="@{/contact/showForm}"><span
-                            class="glyphicon glyphicon-envelope"></span> Kontakt</a></li>
-
-                    <li class="active" sec:authorize="${isAuthenticated()}"><a th:href="@{/details}"><span
-                            class="glyphicon glyphicon-user" sec:authentication="name"> </span></a>
-                    </li>
-                    <li class="active" sec:authorize="${!isAuthenticated()}"><a th:href="@{/login}"><span
-                            class="glyphicon glyphicon-log-in"></span> Zaloguj</a></li>
-                    <li class="active" sec:authorize="${isAuthenticated()}">
-                        <a>
-                            <form th:action="@{/logout}" method="post">
-                                <input class="glyphicon glyphicon-log-out" type="submit" value="Wyloguj">
-                            </form>
-                        </a></li>
-
-
-
-
-                    </ul>
-
-                </div>
             </div>
+
+            <li class="navbar navbar-rigth" sec:authorize="${!isAuthenticated()}">
+                <a th:href="@{/register}">Rejstracja</a></li>
+
+        </ul>
+
     </nav>
+
+
+    </body>
 </div>
-
-
-</body>
 </html>
