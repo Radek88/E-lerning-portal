@@ -3,8 +3,11 @@ package elerning.Controller.QuizController;
 
 import elerning.Model.Quiz.Question;
 import elerning.Model.Quiz.Quiz;
+import elerning.Model.Quiz.UserQuizAnswers;
+import elerning.Model.User;
 import elerning.Service.Quiz.QuizService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -17,8 +20,13 @@ import java.util.*;
 @Controller
 public class QuizController {
 
+    private int result = 0;
+
     @Autowired
     private QuizService quizService;
+
+    private List<UserQuizAnswers> userAnswers;
+
 
 
     @GetMapping("/displayQuestion")
@@ -47,9 +55,8 @@ public class QuizController {
 
     @PostMapping("/saveQuiz")
     private String createQuiz(@RequestParam("quizName") String quizName,
-                              @RequestParam("numberOfQuestions") int numberOfQuestions,
                               Model model) {
-        Quiz quiz = quizService.createNewQuiz(quizName, numberOfQuestions);
+        Quiz quiz = quizService.createNewQuiz(quizName);
         Question question = new Question();
         model.addAttribute("quiz", quiz);
         model.addAttribute("question", question);
@@ -101,26 +108,50 @@ public class QuizController {
                              @RequestParam(value = "quizId") Integer quizId,
                              @RequestParam(value = "questionId", required = false) Integer questionId,
                              @RequestParam(value = "correct", required = false) String correctAnswer,
-                             @RequestParam(value = "answer", required = false) String answer) {
+                             @RequestParam(value = "answer", required = false) String answer,
+                             Authentication authentication) {
+
+
 
         Quiz quiz = quizService.findQuizById(quizId);
         model.addAttribute("quiz", quiz);
         if (questionId == null) {
+
+            userAnswers = new LinkedList<>();
+
             model.addAttribute("question", quiz.getQuestionsList().get(0));
+
             return "displayQuestion";
 
 
         } else {
+
             Question actualQuestion = quizService.findQuestionById(questionId);
+            UserQuizAnswers tmpAnswerObject = new UserQuizAnswers(actualQuestion,answer,correctAnswer);
+            userAnswers.add(tmpAnswerObject);
+            if(tmpAnswerObject.isCorrect()){
+                result++;
+            }
+
+
             Integer nextQuestionOnList = quiz.getQuestionsList().indexOf(actualQuestion);
 
+
             if (nextQuestionOnList == quiz.getQuestionsList().size()-1) {
+
+                model.addAttribute("userAnswers",userAnswers);
+                model.addAttribute("result",result);
+                model.addAttribute("numberOfQuestions",quiz.getQuestionsList().size());
+                result = 0;
                 return "quizResult";
             }
+
             Integer nextQuestionId = quiz.getQuestionsList().get(nextQuestionOnList+1).getId();
             return displayQuestion(model, nextQuestionId);
         }
     }
+
+
 
 
 }

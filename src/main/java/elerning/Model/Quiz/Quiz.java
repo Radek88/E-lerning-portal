@@ -15,7 +15,6 @@ public class Quiz {
 
     private String quizName;
 
-    private int numberOfQuestions;
 
     @OneToMany(fetch = FetchType.LAZY,cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
     @JoinColumn(name = "quiz_id")
@@ -27,9 +26,9 @@ public class Quiz {
         this.questionsList = questionsList;
     }
 
-    public Quiz(String quizName, int numberOfQuestions) {
+    public Quiz(String quizName) {
         this.quizName = quizName;
-        this.numberOfQuestions = numberOfQuestions;
+
     }
 
     public Quiz() {
@@ -59,11 +58,4 @@ public class Quiz {
         this.questionsList = questionsList;
     }
 
-    public int getNumberOfQuestions() {
-        return numberOfQuestions;
-    }
-
-    public void setNumberOfQuestions(int numberOfQuestions) {
-        this.numberOfQuestions = numberOfQuestions;
-    }
 }

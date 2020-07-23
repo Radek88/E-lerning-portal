@@ -10,22 +10,15 @@
 </head>
 <body>
 <div th:replace="header :: header"/>
-<div>
-<div class="sidebar">
-    <a th:href="@{/quiz/createQuiz}"><i class="fa fa-fw fa-home"></i>Materiały</a>
-    <a href="#services"><i class="fa fa-fw fa-wrench"></i> Użytkownicy</a>
-    <a href="#clients"><i class="fa fa-fw fa-user"></i> Clients</a>
-    <a href="#contact"><i class="fa fa-fw fa-envelope"></i> Contact</a>
-    <div class="dropdown">
-        <button class="dropbtn">Dropdown</button>
-        <div class="dropdown-content">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
-        </div>
-    </div>
+
+<div class="sidenav">
+    <a th:href="@{/quiz/createQuiz}"><i class="fa fa-fw fa-home"></i>Quizy</a>
+    <a href="#services"> Materiały wideo</a>
+    <a href="#clients"> Artykuły</a>
+    <a href="#contact"> Użytkownicy</a>
+
 </div>
-</div>
+
 
 </body>
 </html>

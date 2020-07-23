@@ -2,6 +2,17 @@
     position: relative;
 }
 
+.result {
+    width: 90%;
+    color: white;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: xx-large;
+    position: center;
+    border: solid 1px #636367;
+    border-radius: 10px;
+    background-color: #99a5ff;
+}
+
 
 /*logo*/
 
@@ -47,6 +58,16 @@ p {
     font-size: large;
     color: white;
     text-decoration: none;
+    width: max-content;
+
+}
+.navbar a:hover {
+    background: rgba(0, 0, 0, 0.35);
+}
+
+.dropdownItem  {
+    word-break: keep-all;
+    width: 100%!important;
 
 }
 
@@ -60,19 +81,14 @@ p {
 
 }
 
-.navbar a:hover {
-    background: rgba(0, 0, 0, 0.35);
-}
+
 
 .navbar-bar {
-    height: 42px;
+    height: 43px;
 
 }
 
-.dropdown {
 
-
-}
 
 #menu #list {
     max-height: 0;
@@ -81,6 +97,8 @@ p {
     background: rgba(78, 80, 78, 0.8);
     position: absolute;
     padding-inline-start: 0;
+    left: auto;
+    right: 0;
 }
 
 #menu:hover #list {
@@ -248,7 +266,8 @@ tr:nth-child(odd) {
 }
 .table td{
     text-align: center;
-
+    border: solid 1px #636367;
+    border-radius: 5px;
 }
 
 
@@ -320,4 +339,43 @@ div.box .button {
 
 }
 
+/* The sidebar menu */
+.sidenav {
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 160px; /* Set the width of the sidebar */
+    position: inherit; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background: rgba(0, 0, 0, 0.3);
+    padding-top: 10px;
+}
+
+/* The navigation menu links */
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    background-color: transparent;
+    text-decoration: none;
+    font-size: large;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: white;
+    display: block;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+    background: rgba(0, 0, 0, 0.35);
+}
+
+/* Style page content */
+.main {
+    margin-left: 160px; /* Same as the width of the sidebar */
+    padding: 0px 10px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
 

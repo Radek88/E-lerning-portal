@@ -38,13 +38,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers(
                         "/login",
-                        "/save",
-                        "/quiz/**",
+
                         "/",
                         "/home",
                         "/about",
                         "/contact/**",
-                        "/course1",
                         "/register/**",
                         "/js/**",
                         "/static/img/**",

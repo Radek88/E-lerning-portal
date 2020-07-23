@@ -3,7 +3,8 @@
 <head>
     <span th:fragment="header-css">
         <link rel="stylesheet" th:href="@{/css/stylesheet.css}" href="css/stylesheet.css"/>
-        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&displa
+        y=swap" rel="stylesheet">
     </span>
 
 </head>
@@ -22,11 +23,22 @@
         <ul class="navbar">
             <li class="navbar navbar-left"><a th:href="@{/home}">E-Learn!</a></li>
 
-
-            <li class="navbar navbar-rigth" sec:authorize="${isAuthenticated()}">
-                <a th:href="@{/details}"><span
+            <div id="menu" sec:authorize="${isAuthenticated()}" class="navbar navbar-rigth">
+                <a th:href="@{/user/details}"><span
                         sec:authentication="name"> </span></a>
-            </li>
+                <ul id="list">
+                    <li class="navbar" >
+                        <a class="dropdownItem" th:href="@{/quiz/listQuiz}">Moje&nbsp;wyniki</a></li>
+                    <li class="navbar" sec:authorize="${isAuthenticated()}">
+                        <a class="dropdownItem">
+                            <form th:action="@{/logout}" method="post">
+                                <input type="submit" value="Wyloguj">
+                            </form>
+                        </a></li>
+                </ul>
+            </div>
+
+
 
             <li class="navbar navbar-left" >
             <a th:href="@{/contact/showForm}">Kontakt</a>
@@ -35,12 +47,7 @@
             <li class="navbar navbar-rigth" sec:authorize="${!isAuthenticated()}">
                 <a th:href="@{/login}">Zaloguj</a></li>
 
-            <li class="navbar navbar-rigth" sec:authorize="${isAuthenticated()}">
-                <a>
-                    <form th:action="@{/logout}" method="post">
-                        <input type="submit" value="Wyloguj">
-                    </form>
-                </a></li>
+
 
             <li class="navbar navbar-rigth" sec:authorize="hasAuthority('ADMIN')">
                 <a th:href="@{/user/adminPanel}">Panel administratora</a></li>
@@ -51,11 +58,12 @@
                 <a>Materiały</a>
                 <ul id="list">
                     <li class="navbar" >
-                        <a th:href="@{/quiz/listQuiz}">Materiały filmowe</a></li>
+                        <a class="dropdownItem" th:href="@{/quiz/listQuiz}">Materiały&nbsp;filmowe</a>
+                    </li>
                     <li class="navbar" >
-                        <a th:href="@{/quiz/listQuiz}">Artykuły</a></li>
+                        <a class="dropdownItem" th:href="@{/quiz/listQuiz}">Artykuły</a></li>
                     <li class="navbar" >
-                        <a th:href="@{/quiz/listQuiz}">Quizy</a></li>
+                        <a class="dropdownItem" th:href="@{/quiz/listQuiz}">Quizy</a></li>
                 </ul>
             </div>
 

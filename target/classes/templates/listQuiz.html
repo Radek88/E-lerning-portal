@@ -12,9 +12,7 @@
 
 <div class="container">
     <table class="table">
-
         <thead>
-
         <th>Nazwa Quizu</th>
         <th></th>
 
@@ -23,6 +21,7 @@
         <tr th:each="quiz : ${quizList}">
             <td th:text="${quiz.quizName}"></td>
             <td><a th:href="@{/quiz/startQuiz(quizId=${quiz.id})}">Zagraj</a></td>
+            <td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/quiz/update}">Edytuj</a> </td>
         </tr>
 
         </tbody>

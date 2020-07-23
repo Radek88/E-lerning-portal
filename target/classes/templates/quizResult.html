@@ -10,6 +10,43 @@
 </head>
 <body>
 <div th:replace="header :: header"/>
-DUPA
+<div class="container">
+    <table class="table">
+
+        <thead>
+
+        <th>Pytanie</th>
+        <th>Twoja odpowiedź</th>
+        <th>Poprawna odpowiedź</th>
+        <th>Rezultat</th>
+
+
+        </thead>
+        <tbody>
+        <tr th:each="userAnswers : ${userAnswers}">
+            <td th:text="${userAnswers.questionId}"></td>
+            <td th:text="${userAnswers.answer}"></td>
+            <td th:text="${userAnswers.correctAnswer}"></td>
+            <td th:text="${userAnswers.isCorrect()}"></td>
+
+        </tr>
+
+
+                <p class="result">
+                    Twój wynik to:
+                    <span th:text="${result}"/></p>
+                <p class="result">
+                    Liczba pytań:
+                    <span th:text="${numberOfQuestions}"/>
+                </p>
+
+
+        </tbody>
+
+
+    </table>
+
+
+</div>
 </body>
 </html>

@@ -40,8 +40,8 @@ public class QuizServiceImplementation implements QuizService {
     }
 
     @Override
-    public Quiz createNewQuiz(String quizName, int numberOfQuestions) {
-        Quiz quiz = new Quiz(quizName,numberOfQuestions);
+    public Quiz createNewQuiz(String quizName) {
+        Quiz quiz = new Quiz(quizName);
         quizRepository.save(quiz);
         return quiz;
     }

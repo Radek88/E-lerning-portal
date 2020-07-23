@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>eLearning create quiz</title>
     <div th:replace="header :: header-css"/>
-    <link rel="stylesheet" href="/css/quiz.css">
+
 
 </head>
 <body>
@@ -14,14 +14,11 @@
         <form th:action="@{/quiz/saveQuiz}" method="post">
             <a>Podaj nazwę Quizu: </a>
             <a><input type="text" name="quizName"></a>
-            <a>Podaj liczbę pytań: </a>
-            <a><input type="number" name="numberOfQuestions"></a>
             <a><input type="submit" value="Zapisz Quiz"></a>
         </form>
     </div>
     <div class="container" th:if="${quiz != null }">
         <p th:text="${quiz.quizName}"></p>
-        <p th:text="${quiz.numberOfQuestions}"></p>
 
         <form th:action="@{/quiz/saveQuestionToQuiz}" method="post" th:object="${question}">
             <input hidden name="quizId" th:value="${quiz.id}">
@@ -32,9 +29,12 @@
             <p>Odpowiedź B <input type="text" placeholder="Odpowiedz B" name="answerB" th:field="*{b}"></p>
             <p>Odpowiedź C <input type="text" placeholder="Odpowiedz C" name="answerC" th:field="*{c}"></p>
             <p>Odpowiedź D <input type="text" placeholder="Odpowiedz D" name="answerD" th:field="*{d}"></p>
-            <p>Poprawna odpowiedź<input type="text" placeholder="TUTAJ PODAJ LITERAL POPRAWNEJ ODPOWIEDZI"
-                                        name="correct"
-                                        th:field="*{correct}"></p>
+            <p>Poprawna odpowiedź<select th:field="*{correct}">
+                <option th:value="${question.getA()}" th:text="A"></option>
+                <option th:value="${question.getA()}" th:text="B"></option>
+                <option th:value="${question.getA()}" th:text="C"></option>
+                <option th:value="${question.getA()}" th:text="D"></option>
+            </select>></p>
             <p><input type="submit" value="Zapisz pytanie"></p>
         </form>
         <form th:action="@{/quiz/quizCompleted}" method="post">

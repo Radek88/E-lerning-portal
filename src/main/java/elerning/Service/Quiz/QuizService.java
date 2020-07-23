@@ -19,7 +19,7 @@ public interface QuizService {
 
     void addQuizToDB(Quiz quiz);
 
-    Quiz createNewQuiz(String quizName, int numberOfQuestions);
+    Quiz createNewQuiz(String quizName);
 
     void saveQuiz(Quiz quiz);
 
