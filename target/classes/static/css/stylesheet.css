@@ -21,7 +21,7 @@ p {
     position: center;
     border: solid 1px #636367;
     border-radius: 10px;
-    background-color: #99a5ff;
+    background-color: #7eaac9;
 }
 
 
@@ -146,8 +146,8 @@ p {
 
 .des {
     font-family: 'Source Sans Pro', sans-serif;
-    color: #48606e;
-    font-size: 22px;
+    color: #eeeded;
+    font-size: 18px;
 }
 
 .card button {

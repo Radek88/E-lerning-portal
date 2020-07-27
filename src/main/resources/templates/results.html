@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Register Page</title>
+    <div th:replace="header :: header-css"/>
+</head>
+<body>
+<div th:replace="header :: header"/>
+
+<div class="container">
+    <table class="table">
+        <thead>
+        <th>Nazwa Quizu</th>
+        <th>Twój wynik (poprawne odpowiedzi / liczba pytań)</th>
+        </thead>
+        <tbody>
+        <tr th:each="result : ${results}">
+            <td th:text="${result.quiz.quizName}"></td>
+            <td ><a th:text="${result.number_of_correct_answer}"></a><a>/</a><a th:text="${result.total_number_of_questions}"></a></td>
+        </tr>
+
+        </tbody>
+
+
+    </table>
+
+
+</div>
+
+</body>
+</html>
