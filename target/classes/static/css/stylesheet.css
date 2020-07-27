@@ -2,6 +2,17 @@
     position: relative;
 }
 
+a {
+    font-family: 'Source Sans Pro', sans-serif;
+    color: white;
+    font-size: x-large;
+}
+
+p {
+    text-align: center;
+}
+
+
 .result {
     width: 90%;
     color: white;
@@ -33,10 +44,6 @@
 
 }
 
-p {
-    text-align: center;
-}
-
 
 /*navbar*/
 
@@ -61,13 +68,14 @@ p {
     width: max-content;
 
 }
+
 .navbar a:hover {
     background: rgba(0, 0, 0, 0.35);
 }
 
-.dropdownItem  {
+.dropdownItem {
     word-break: keep-all;
-    width: 100%!important;
+    width: 100% !important;
 
 }
 
@@ -82,16 +90,11 @@ p {
 }
 
 
-
 .navbar-bar {
     height: 43px;
 
 }
 
-.dropdown {
-
-
-}
 
 #menu #list {
     max-height: 0;
@@ -109,6 +112,20 @@ p {
     transition: max-height 0.25s ease-in;
 }
 
+#menuSide #listSide {
+    max-height: 0;
+    transition: max-height 0.15s ease-out;
+    overflow: hidden;
+    background: rgba(78, 80, 78, 0.8);
+    position: inherit;
+    padding-inline-start: 0;
+    margin: 0;
+}
+
+#menuSide:hover #listSide {
+    max-height: 500px;
+    transition: max-height 0.8s ease-in;
+}
 
 /*homepage cards*/
 .card {
@@ -251,7 +268,8 @@ th {
     background-color: whitesmoke;
     border: lightgray;
 }
-thead{
+
+thead {
 
 
 }
@@ -267,7 +285,8 @@ tr:nth-child(odd) {
     background: #99a5ff;
     height: 2em;
 }
-.table td{
+
+.table td {
     text-align: center;
     border: solid 1px #636367;
     border-radius: 5px;
@@ -345,7 +364,7 @@ div.box .button {
 /* The sidebar menu */
 .sidenav {
     height: 100%; /* Full-height: remove this if you want "auto" height */
-    width: 160px; /* Set the width of the sidebar */
+    width: max-content; /* Set the width of the sidebar */
     position: inherit; /* Fixed Sidebar (stay in place on scroll) */
     z-index: 1; /* Stay on top */
     top: 0; /* Stay at the top */
@@ -378,7 +397,12 @@ div.box .button {
 
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
+    .sidenav {
+        padding-top: 15px;
+    }
+
+    .sidenav a {
+        font-size: 18px;
+    }
 }
 

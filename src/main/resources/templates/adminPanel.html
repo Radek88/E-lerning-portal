@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl" xmlns:th="http://thymeleaf.org">
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Panel administratora</title>
@@ -12,10 +12,55 @@
 <div th:replace="header :: header"/>
 
 <div class="sidenav">
-    <a th:href="@{/quiz/createQuiz}"><i class="fa fa-fw fa-home"></i>Quizy</a>
-    <a href="#services"> Materiały wideo</a>
-    <a href="#clients"> Artykuły</a>
-    <a href="#contact"> Użytkownicy</a>
+    <div id="menuSide"  >
+        <a>Quizy</a>
+        <ul id="listSide">
+            <li>
+                <a class="dropdownItem" th:href="@{/quiz/createQuiz}">Dodaj</a>
+            </li>
+            <li>
+                <a class="dropdownItem" th:href="@{/quiz/listQuiz}">Zarządzaj</a></li>
+            <li>
+                <a class="dropdownItem" th:href="@{/quiz/listQuiz}">Szukaj</a></li>
+        </ul>
+    </div>
+    <div id="menuSide"  >
+        <a> Materiały wideo</a>
+        <ul id="listSide">
+            <li>
+                <a class="dropdownItem" th:href="@{/quiz/listQuiz}">Dodaj</a>
+            </li>
+            <li>
+                <a class="dropdownItem" th:href="@{/quiz/listQuiz}">Zarządzaj</a></li>
+            <li>
+                <a class="dropdownItem" th:href="@{/quiz/listQuiz}">Szukaj</a></li>
+        </ul>
+    </div>
+    <div id="menuSide"  >
+        <a>Artykuły</a>
+        <ul id="listSide">
+            <li>
+                <a class="dropdownItem" th:href="@{/quiz/listQuiz}">Dodaj</a>
+            </li>
+            <li>
+                <a class="dropdownItem" th:href="@{/quiz/listQuiz}">Zarządzaj</a></li>
+            <li>
+                <a class="dropdownItem" th:href="@{/quiz/listQuiz}">Szukaj</a></li>
+        </ul>
+    </div>
+    <div id="menuSide"  >
+        <a>Użytkownicy</a>
+        <ul id="listSide">
+            <li>
+                <a class="dropdownItem" th:href="@{/quiz/listQuiz}">Dodaj</a>
+            </li>
+            <li>
+                <a class="dropdownItem" th:href="@{/quiz/listQuiz}">Zarządzaj</a></li>
+            <li>
+                <a class="dropdownItem" th:href="@{/quiz/listQuiz}">Szukaj</a></li>
+        </ul>
+    </div>
+
 
 </div>
 

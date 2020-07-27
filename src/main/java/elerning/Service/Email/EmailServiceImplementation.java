@@ -14,7 +14,7 @@ public class EmailServiceImplementation implements EmailService {
     public void sendEmail(String senderName, String senderEmail, String subject, String messagePlainText) {
 
         final String username = "elerningproject@gmail.com";
-        final String password = "JAVAtor6";
+        final String password = "";
 
         Properties props = new Properties();
         props.put("mail.smtp.host", "smtp.gmail.com");

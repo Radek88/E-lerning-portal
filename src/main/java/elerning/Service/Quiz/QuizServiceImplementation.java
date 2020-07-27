@@ -1,5 +1,6 @@
 package elerning.Service.Quiz;
 
+import elerning.Model.Quiz.Categories;
 import elerning.Model.Quiz.Question;
 import elerning.Model.Quiz.Quiz;
 import elerning.Repository.Quiz.QuestionsRepository;
@@ -40,8 +41,9 @@ public class QuizServiceImplementation implements QuizService {
     }
 
     @Override
-    public Quiz createNewQuiz(String quizName) {
+    public Quiz createNewQuiz(String quizName, Categories category) {
         Quiz quiz = new Quiz(quizName);
+        quiz.setCategory(category);
         quizRepository.save(quiz);
         return quiz;
     }
