@@ -1,10 +1,12 @@
 package elerning.Controller.QuizController;
 
 
+import elerning.Model.Quiz.Categories;
 import elerning.Model.Quiz.Question;
 import elerning.Model.Quiz.Quiz;
 import elerning.Model.Quiz.UserQuizAnswers;
 import elerning.Model.User;
+import elerning.Service.Quiz.CategoriesService;
 import elerning.Service.Quiz.QuizService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -20,13 +22,16 @@ import java.util.*;
 @Controller
 public class QuizController {
 
-    private int result = 0;
 
     @Autowired
     private QuizService quizService;
 
+    @Autowired
+    private CategoriesService categoriesService;
+
     private List<UserQuizAnswers> userAnswers;
 
+    private int result = 0;
 
 
     @GetMapping("/displayQuestion")
@@ -48,15 +53,20 @@ public class QuizController {
     }*/
 
     @GetMapping("/createQuiz")
-    private String createQuizForm() {
+    private String createQuizForm(Model model) {
+        List<Categories> categoriesList = categoriesService.findAll();
+        model.addAttribute("categoriesList", categoriesList );
         return "createQuiz";
     }
 
 
     @PostMapping("/saveQuiz")
     private String createQuiz(@RequestParam("quizName") String quizName,
+                              @RequestParam("category") String cat,
                               Model model) {
-        Quiz quiz = quizService.createNewQuiz(quizName);
+
+        Categories category = categoriesService.findByCategoryName(cat);
+        Quiz quiz = quizService.createNewQuiz(quizName,category);
         Question question = new Question();
         model.addAttribute("quiz", quiz);
         model.addAttribute("question", question);

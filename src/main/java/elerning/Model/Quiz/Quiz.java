@@ -3,7 +3,6 @@ package elerning.Model.Quiz;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name = "quiz")
@@ -19,6 +18,11 @@ public class Quiz {
     @OneToMany(fetch = FetchType.LAZY,cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
     @JoinColumn(name = "quiz_id")
     private List<Question> questionsList;
+
+
+    @OneToOne(fetch = FetchType.LAZY,cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+    @JoinColumn(referencedColumnName = "category")
+    private Categories category;
 
 
     public Quiz(int id, String quizName, List<Question> questionsList) {
@@ -58,4 +62,11 @@ public class Quiz {
         this.questionsList = questionsList;
     }
 
+    public Categories getCategory() {
+        return category;
+    }
+
+    public void setCategory(Categories category) {
+        this.category = category;
+    }
 }

@@ -1,5 +1,6 @@
 package elerning.Service.Quiz;
 
+import elerning.Model.Quiz.Categories;
 import elerning.Model.Quiz.Question;
 import elerning.Model.Quiz.Quiz;
 
@@ -19,7 +20,7 @@ public interface QuizService {
 
     void addQuizToDB(Quiz quiz);
 
-    Quiz createNewQuiz(String quizName);
+    Quiz createNewQuiz(String quizName, Categories category);
 
     void saveQuiz(Quiz quiz);
 

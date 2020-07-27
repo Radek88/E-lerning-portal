@@ -12,4 +12,7 @@ public interface QuizRepository extends JpaRepository<Quiz,Integer> {
     Quiz findById(int id);
 
     List<Quiz>findAll();
+
+
+
 }

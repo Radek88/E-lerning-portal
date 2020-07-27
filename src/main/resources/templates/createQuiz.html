@@ -9,14 +9,30 @@
 </head>
 <body>
 <div th:replace="header :: header"/>
+
+
 <div class="container" th:if="${completedQuiz == null }">
     <div class="container" th:if="${quiz == null }">
         <form th:action="@{/quiz/saveQuiz}" method="post">
-            <a>Podaj nazwę Quizu: </a>
-            <a><input type="text" name="quizName"></a>
+
+            <p>
+                <a>Podaj nazwę Quizu: </a>
+                <a><input type="text" name="quizName"></a>
+            </p>
+
+            <p>
+                <a>Wybierz kategorię: </a>
+                <a><select name="category">
+                    <option th:each="category : ${categoriesList}" th:value="${category.category_name}"
+                            th:text="${category.category_name}"/>
+                </select></a>
+            </p>
+
             <a><input type="submit" value="Zapisz Quiz"></a>
         </form>
     </div>
+
+
     <div class="container" th:if="${quiz != null }">
         <p th:text="${quiz.quizName}"></p>
 
@@ -34,7 +50,8 @@
                 <option th:value="${question.getA()}" th:text="B"></option>
                 <option th:value="${question.getA()}" th:text="C"></option>
                 <option th:value="${question.getA()}" th:text="D"></option>
-            </select>></p>
+            </select>>
+            </p>
             <p><input type="submit" value="Zapisz pytanie"></p>
         </form>
         <form th:action="@{/quiz/quizCompleted}" method="post">
@@ -55,16 +72,16 @@
         <th>Correct answer</th>
         </thead>
 
-    <tr th:each="question: ${completedQuiz.getQuestionsList()}">
-        <td th:text="${question.id}" />
-        <td th:text="${question.questionText}" />
-        <td th:text="${question.a}" />
-        <td th:text="${question.b}" />
-        <td th:text="${question.c}" />
-        <td th:text="${question.d}" />
-        <td th:text="${question.correct}" />
+        <tr th:each="question: ${completedQuiz.getQuestionsList()}">
+            <td th:text="${question.id}"/>
+            <td th:text="${question.questionText}"/>
+            <td th:text="${question.a}"/>
+            <td th:text="${question.b}"/>
+            <td th:text="${question.c}"/>
+            <td th:text="${question.d}"/>
+            <td th:text="${question.correct}"/>
 
-    </tr>
+        </tr>
     </table>
 </div>
 
