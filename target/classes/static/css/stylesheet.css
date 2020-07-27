@@ -129,17 +129,15 @@ p {
 
 /*homepage cards*/
 .card {
-
     border-radius: 5px;
     padding: 1%;
     margin: 1% 1%;
-    max-width: 300px;
+    max-width: 20%;
     text-align: center;
     font-family: 'Source Sans Pro', sans-serif;
-    color: #48606e;
-    background-color: rgba(165, 165, 165, 0.8);
-    border: 1px solid lightslategray;
-
+    color: #ebebeb;
+    background-color: rgb(118 158 193);
+    border: 1px solid #6686ac;
 }
 
 .card:hover {
@@ -173,10 +171,10 @@ p {
 
 .image img {
     border-radius: 5px;
-    min-height: 300px;
-    min-width: 300px;
-    max-height: 300px;
-    max-width: 300px;
+    min-height: 150px;
+    min-width: 150px;
+    max-height: 150px;
+    max-width: 150px;
 
 }
 
@@ -187,8 +185,9 @@ p {
 
 .main {
 
-    display: -webkit-inline-box;
-    padding: 5% 3%;
+
+
+
 
 }
 
@@ -265,8 +264,9 @@ input:-internal-autofill-selected {
 th {
 
     min-height: 4em;
-    background-color: whitesmoke;
+    background-color: #ebebeb;
     border: lightgray;
+    border-radius: 5px;
 }
 
 thead {
@@ -282,7 +282,7 @@ tr:nth-child(even) {
 
 
 tr:nth-child(odd) {
-    background: #99a5ff;
+    background: #7eaac9;
     height: 2em;
 }
 
@@ -389,10 +389,10 @@ div.box .button {
     background: rgba(0, 0, 0, 0.35);
 }
 
-/* Style page content */
 .main {
-    margin-left: 160px; /* Same as the width of the sidebar */
-    padding: 0px 10px;
+    width: 90%;
+    display: -webkit-inline-box;
+    padding: 5% 3%;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */

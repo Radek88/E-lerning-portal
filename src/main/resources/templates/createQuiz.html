@@ -46,10 +46,10 @@
             <p>Odpowiedź C <input type="text" placeholder="Odpowiedz C" name="answerC" th:field="*{c}"></p>
             <p>Odpowiedź D <input type="text" placeholder="Odpowiedz D" name="answerD" th:field="*{d}"></p>
             <p>Poprawna odpowiedź<select th:field="*{correct}">
-                <option th:value="${question.getA()}" th:text="A"></option>
-                <option th:value="${question.getA()}" th:text="B"></option>
-                <option th:value="${question.getA()}" th:text="C"></option>
-                <option th:value="${question.getA()}" th:text="D"></option>
+                <option th:value="A" th:text="A"></option>
+                <option th:value="B" th:text="B"></option>
+                <option th:value="C" th:text="C"></option>
+                <option th:value="D" th:text="D"></option>
             </select>>
             </p>
             <p><input type="submit" value="Zapisz pytanie"></p>
