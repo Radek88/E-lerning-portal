@@ -27,7 +27,7 @@
                         sec:authentication="name"> </span></a>
                 <ul id="list">
                     <li class="navbar" >
-                        <a class="dropdownItem" th:href="@{/quiz/listQuiz}">Moje&nbsp;wyniki</a></li>
+                        <a class="dropdownItem" th:href="@{/user/results}">Moje&nbsp;wyniki</a></li>
                     <li class="navbar" sec:authorize="${isAuthenticated()}">
                         <a class="dropdownItem">
                             <form th:action="@{/logout}" method="post">

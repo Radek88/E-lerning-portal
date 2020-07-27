@@ -1,13 +1,13 @@
 package elerning.Controller.QuizController;
 
 
-import elerning.Model.Quiz.Categories;
-import elerning.Model.Quiz.Question;
-import elerning.Model.Quiz.Quiz;
-import elerning.Model.Quiz.UserQuizAnswers;
+import elerning.Model.Quiz.*;
 import elerning.Model.User;
+import elerning.Repository.Quiz.ResultsRepository;
 import elerning.Service.Quiz.CategoriesService;
 import elerning.Service.Quiz.QuizService;
+import elerning.Service.Quiz.ResultsServices;
+import elerning.Service.User.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
@@ -28,6 +28,12 @@ public class QuizController {
 
     @Autowired
     private CategoriesService categoriesService;
+
+    @Autowired
+    private ResultsServices resultsServices;
+
+    @Autowired
+    private UserService userService;
 
     private List<UserQuizAnswers> userAnswers;
 
@@ -55,7 +61,7 @@ public class QuizController {
     @GetMapping("/createQuiz")
     private String createQuizForm(Model model) {
         List<Categories> categoriesList = categoriesService.findAll();
-        model.addAttribute("categoriesList", categoriesList );
+        model.addAttribute("categoriesList", categoriesList);
         return "createQuiz";
     }
 
@@ -66,7 +72,7 @@ public class QuizController {
                               Model model) {
 
         Categories category = categoriesService.findByCategoryName(cat);
-        Quiz quiz = quizService.createNewQuiz(quizName,category);
+        Quiz quiz = quizService.createNewQuiz(quizName, category);
         Question question = new Question();
         model.addAttribute("quiz", quiz);
         model.addAttribute("question", question);
@@ -122,8 +128,8 @@ public class QuizController {
                              Authentication authentication) {
 
 
-
         Quiz quiz = quizService.findQuizById(quizId);
+        User user = userService.findByLogin(authentication.getName());
         model.addAttribute("quiz", quiz);
         if (questionId == null) {
 
@@ -137,9 +143,9 @@ public class QuizController {
         } else {
 
             Question actualQuestion = quizService.findQuestionById(questionId);
-            UserQuizAnswers tmpAnswerObject = new UserQuizAnswers(actualQuestion,answer,correctAnswer);
+            UserQuizAnswers tmpAnswerObject = new UserQuizAnswers(actualQuestion, answer, correctAnswer);
             userAnswers.add(tmpAnswerObject);
-            if(tmpAnswerObject.isCorrect()){
+            if (tmpAnswerObject.isCorrect()) {
                 result++;
             }
 
@@ -147,21 +153,21 @@ public class QuizController {
             Integer nextQuestionOnList = quiz.getQuestionsList().indexOf(actualQuestion);
 
 
-            if (nextQuestionOnList == quiz.getQuestionsList().size()-1) {
+            if (nextQuestionOnList == quiz.getQuestionsList().size() - 1) {
 
-                model.addAttribute("userAnswers",userAnswers);
-                model.addAttribute("result",result);
-                model.addAttribute("numberOfQuestions",quiz.getQuestionsList().size());
+                model.addAttribute("userAnswers", userAnswers);
+                model.addAttribute("result", result);
+                model.addAttribute("numberOfQuestions", quiz.getQuestionsList().size());
+                Results actualQuzResult = new Results(user, quiz, result, quiz.getQuestionsList().size());
+                resultsServices.saveResultToDB(actualQuzResult);
                 result = 0;
                 return "quizResult";
             }
 
-            Integer nextQuestionId = quiz.getQuestionsList().get(nextQuestionOnList+1).getId();
+            Integer nextQuestionId = quiz.getQuestionsList().get(nextQuestionOnList + 1).getId();
             return displayQuestion(model, nextQuestionId);
         }
     }
-
-
 
 
 }
