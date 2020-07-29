@@ -1,4 +1,4 @@
-# E-lerning-portal
+# E-learning-portal
 Web application for company e-learning program. Spring Boot, Spring Security, Maven, Thymeleaf, CSS, HTML, Hibernate Validator, BCrypt, JpaRepository, Postgresql,
 
 ## Table of contents
