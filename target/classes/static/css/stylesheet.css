@@ -9,6 +9,7 @@ a {
 }
 
 p {
+    font-family: 'Source Sans Pro', sans-serif;
     text-align: center;
 }
 
@@ -181,16 +182,76 @@ p {
 .title {
     font-family: 'Source Sans Pro', sans-serif;
 
+
 }
 
 .main {
 
 
 
+}
 
+/*Video cards*/
+.videoCard {
+
+    background: rgb(35 43 59);
+    padding: 2%;
+    display: flex;
+    display-inside: ruby-base;
+}
+.videoCard p {
+    background-color: transparent;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: large;
+    color: white;
+    text-decoration: none;
+
+}
+.videoCard >div {
+    width: 50%;
+
+}
+.videoList{
+    list-style: none;
+    position: inherit;
 
 }
 
+.videoList >li {
+    list-style: none;
+    position: inherit;
+    padding: 15px;
+
+}
+
+.iFrameCustom {
+    width: 450px;
+    height: 260px;
+    border: none;
+
+
+
+}
+.videoTitle{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: x-large;
+
+}
+
+.videoCard button{
+    border-radius: 20px;
+    outline: 0;
+    padding: 1%;
+    color: white;
+    background-color: whitesmoke;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #48606e;
+    font-size: 22px;
+
+}
 
 /*Login/register form*/
 .usrForm {
