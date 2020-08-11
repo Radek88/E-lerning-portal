@@ -254,7 +254,7 @@ p {
 }
 
 /*Login/register form*/
-.usrForm {
+.form-custom {
     display: block;
     text-align: center;
     border: none !important;
@@ -267,7 +267,7 @@ p {
 }
 
 
-.usrForm .form-input input {
+.form-custom .form-input input {
     font-family: 'Source Sans Pro', sans-serif;
     background-color: white !important;
     padding: 1%;
@@ -279,7 +279,7 @@ p {
 
 }
 
-.usrForm textarea {
+.form-custom textarea {
     border-radius: 10px;
     font-family: 'Source Sans Pro', sans-serif;
     font-size: larger;
@@ -288,12 +288,12 @@ p {
     text-align: start;
 }
 
-.usrForm h1 {
+.form-custom h1 {
     color: white;
     font-family: 'Source Sans Pro', sans-serif;
 }
 
-.usrForm div {
+.form-custom div {
     border: none;
 }
 
@@ -426,9 +426,9 @@ div.box .button {
 .sidenav {
     height: 100%; /* Full-height: remove this if you want "auto" height */
     width: max-content; /* Set the width of the sidebar */
-    position: inherit; /* Fixed Sidebar (stay in place on scroll) */
+    position: absolute; /* Fixed Sidebar (stay in place on scroll) */
+    margin-left: 8px;
     z-index: 1; /* Stay on top */
-    top: 0; /* Stay at the top */
     left: 0;
     background: rgba(0, 0, 0, 0.3);
     padding-top: 10px;
@@ -466,4 +466,10 @@ div.box .button {
         font-size: 18px;
     }
 }
+
+.addQuestion  p {
+
+
+}
+
 

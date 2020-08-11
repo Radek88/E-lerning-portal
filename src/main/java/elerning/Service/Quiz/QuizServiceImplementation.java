@@ -1,6 +1,6 @@
 package elerning.Service.Quiz;
 
-import elerning.Model.Quiz.Categories;
+import elerning.Model.Categories;
 import elerning.Model.Quiz.Question;
 import elerning.Model.Quiz.Quiz;
 import elerning.Repository.Quiz.QuestionsRepository;

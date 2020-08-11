@@ -9,7 +9,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -27,7 +26,7 @@ public class UserController {
 
     @GetMapping("/adminPanel")
     private String adminPanel() {
-        return "adminPanel";
+        return "userAdminPanel";
     }
 
     @GetMapping("/details")
@@ -35,7 +34,7 @@ public class UserController {
                                Model model) {
         User user = userService.findByLogin(auth.getName());
         model.addAttribute("user", user);
-        return "details";
+        return "userDetails";
     }
 
     @GetMapping("/results")
@@ -46,7 +45,7 @@ public class UserController {
         model.addAttribute("results",resultsList);
 
 
-        return "results";
+        return "quizResults";
     }
 
 

@@ -1,6 +1,6 @@
 package elerning.Service.Quiz;
 
-import elerning.Model.Quiz.Categories;
+import elerning.Model.Categories;
 import elerning.Repository.Quiz.CategoriesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

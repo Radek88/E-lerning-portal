@@ -1,10 +1,10 @@
-package elerning.Model.Quiz;
+package elerning.Model;
 
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Categories")
+@Table(name = "categories")
 public class Categories {
 
     @Id

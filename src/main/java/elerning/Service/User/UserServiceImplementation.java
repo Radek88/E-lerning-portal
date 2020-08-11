@@ -31,14 +31,12 @@ public class UserServiceImplementation implements UserService {
 
     @Override
     public User findByLogin(String login) {
-        User user = userRepository.findByLogin(login);
-        return user;
+        return userRepository.findByLogin(login);
     }
 
     @Override
     public User findByName(String name) {
-        User user = userRepository.findByName(name);
-        return user;
+        return userRepository.findByName(name);
     }
 
 

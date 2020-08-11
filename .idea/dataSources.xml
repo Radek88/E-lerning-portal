@@ -16,13 +16,7 @@
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://localhost:5432/postgres</jdbc-url>
     </data-source>
-    <data-source source="LOCAL" name="@localhost" uuid="3a813b0a-768e-493d-9bac-4205eb42e049">
-      <driver-ref>mysql.8</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306</jdbc-url>
-    </data-source>
-    <data-source source="LOCAL" name="d457sb4mijb69o@ec2-54-75-229-28.eu-west-1.compute.amazonaws.com" uuid="f17cef61-574e-420d-999d-1af46048e4c5">
+    <data-source source="LOCAL" name="d9e0ljim5gcqio@ec2-54-75-229-28.eu-west-1.compute.amazonaws.com" uuid="786838bb-b37f-4899-b714-745c60b6d6f0">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
@@ -32,6 +26,12 @@
         <property name="sslmode" value="verify-ca" />
         <property name="sslfactory" value="org.postgresql.ssl.NonValidatingFactory" />
       </driver-properties>
+    </data-source>
+    <data-source source="LOCAL" name="@localhost" uuid="3a813b0a-768e-493d-9bac-4205eb42e049">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306</jdbc-url>
     </data-source>
   </component>
 </project>

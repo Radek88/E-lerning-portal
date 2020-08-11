@@ -1,17 +1,10 @@
 <!DOCTYPE html>
 <html lang="pl" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Panel administratora</title>
-    <div th:replace="header :: header-css"/>
-    <link rel="stylesheet" href="/css/sidebar.css">
-
-
-</head>
+<head th:replace="header :: header-css"></head>
 <body>
 <div th:replace="header :: header"/>
 
-<div class="sidenav">
+<div class="sidenav" th:fragment="sidenav">
     <div id="menuSide"  >
         <a>Quizy</a>
         <ul id="listSide">
@@ -28,7 +21,7 @@
         <a> Materiały wideo</a>
         <ul id="listSide">
             <li>
-                <a class="dropdownItem" th:href="@{/quiz/listQuiz}">Dodaj</a>
+                <a class="dropdownItem" th:href="@{/video/addVideo}">Dodaj</a>
             </li>
             <li>
                 <a class="dropdownItem" th:href="@{/quiz/listQuiz}">Zarządzaj</a></li>

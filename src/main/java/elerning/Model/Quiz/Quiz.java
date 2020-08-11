@@ -1,6 +1,8 @@
 package elerning.Model.Quiz;
 
 
+import elerning.Model.Categories;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -21,7 +23,7 @@ public class Quiz {
 
 
     @OneToOne(fetch = FetchType.LAZY,cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
-    @JoinColumn(referencedColumnName = "category")
+    @JoinColumn(name= "category",referencedColumnName = "category")
     private Categories category;
 
 
