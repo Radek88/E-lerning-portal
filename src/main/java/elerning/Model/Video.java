@@ -20,6 +20,13 @@ public class Video {
 
     private String link;
 
+    @OneToOne(fetch = FetchType.LAZY, cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @JoinColumn(name = "category", referencedColumnName = "category")
+    private Categories category;
+
+    @Column(name= "quiz_id")
+    private Integer quiz_id;
+
     public Video() {
     }
 
@@ -53,5 +60,21 @@ public class Video {
 
     public void setLink(String link) {
         this.link = link;
+    }
+
+    public Categories getCategory() {
+        return category;
+    }
+
+    public void setCategory(Categories category) {
+        this.category = category;
+    }
+
+    public Integer getQuiz_id() {
+        return quiz_id;
+    }
+
+    public void setQuiz_id(Integer quizId) {
+        this.quiz_id = quizId;
     }
 }

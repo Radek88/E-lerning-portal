@@ -27,7 +27,7 @@ public class EmailController {
                              @RequestParam("subject") String subject,
                              @RequestParam("message") String message) {
         emailService.sendEmail(senderName,senderEmail,subject,message );
-        return "home";
+        return "_home";
     }
 
 

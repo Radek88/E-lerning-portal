@@ -1,11 +1,11 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
-<head>
-    <span th:fragment="header-css">
-        <link rel="stylesheet" th:href="@{/css/stylesheet.css}" href="css/stylesheet.css"/>
-        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
-        <link rel="icon" type="image/png"  th:href="@{/img/favicon.png}" href="img/favicon.png"/>
-    </span>
+<head th:fragment="header-css">
+    <title>eLearning</title>
+    <link rel="stylesheet" th:href="@{/css/stylesheet.css}" href="css/stylesheet.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" th:href="@{/img/favicon.png}" href="img/favicon.png"/>
+
 
 </head>
 
@@ -27,7 +27,7 @@
                 <a th:href="@{/user/details}"><span
                         sec:authentication="name"> </span></a>
                 <ul id="list">
-                    <li class="navbar" >
+                    <li class="navbar">
                         <a class="dropdownItem" th:href="@{/user/results}">Moje&nbsp;wyniki</a></li>
                     <li class="navbar" sec:authorize="${isAuthenticated()}">
                         <a class="dropdownItem">
@@ -39,30 +39,27 @@
             </div>
 
 
-
-            <li class="navbar navbar-left" >
-            <a th:href="@{/contact/showForm}">Kontakt</a>
+            <li class="navbar navbar-left">
+                <a th:href="@{/contact/showForm}">Kontakt</a>
             </li>
 
             <li class="navbar navbar-rigth" sec:authorize="${!isAuthenticated()}">
                 <a th:href="@{/login}">Zaloguj</a></li>
 
 
-
             <li class="navbar navbar-rigth" sec:authorize="hasAuthority('ADMIN')">
                 <a th:href="@{/user/adminPanel}">Panel administratora</a></li>
-
 
 
             <div id="menu" sec:authorize="${isAuthenticated()}" class="navbar navbar-rigth">
                 <a>Materiały</a>
                 <ul id="list">
-                    <li class="navbar" >
-                        <a class="dropdownItem" th:href="@{/videos}">Materiały&nbsp;filmowe</a>
+                    <li class="navbar">
+                        <a class="dropdownItem" th:href="@{/video/list}">Materiały&nbsp;filmowe</a>
                     </li>
-                    <li class="navbar" >
+                    <li class="navbar">
                         <a class="dropdownItem" th:href="@{/quiz/listQuiz}">Artykuły</a></li>
-                    <li class="navbar" >
+                    <li class="navbar">
                         <a class="dropdownItem" th:href="@{/quiz/listQuiz}">Quizy</a></li>
                 </ul>
             </div>

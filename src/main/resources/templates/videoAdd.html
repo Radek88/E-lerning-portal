@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="header :: header-css"></head>
+<body>
+<div th:replace="header :: header"/>
+<div class="form-custom">
+    <form th:action="@{/video/saveVideo}" th:object="${video}" method="post">
+        <div class="form-input">
+            <input type="text" placeholder="Podaj tytuł" th:field="*{title}" required="true" autofocus="true"/>
+        </div>
+        <div class="form-input">
+            <textarea type="text" placeholder="Dodaj opis" th:field="*{description}" required="true" autofocus="true"></textarea>
+        </div>
+        <div class="form-input">
+            <input type="text" placeholder="Dodaj link" th:field="*{link}" required="true" autofocus="true"/>
+        </div>
+        <a>Wybierz kategorie</a>
+        <a><select name="category">
+            <option th:each="category : ${categoriesList}" th:value="${category.category_name}"
+                    th:text="${category.category_name}"></option>
+        </select></a>
+        <div class="form-input">
+            <input type="number" placeholder="Quiz id" th:field="*{quiz_id}" required="true" autofocus="true"/>
+        </div>
+        <div class="form-input">
+            <input type="submit"  value="Zapisz"/>
+        </div>
+
+
+    </form>
+
+
+</div>
+
+
+</body>
+</html>

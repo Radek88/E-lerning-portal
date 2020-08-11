@@ -1,6 +1,6 @@
 package elerning.Repository.Quiz;
 
-import elerning.Model.Quiz.Categories;
+import elerning.Model.Categories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

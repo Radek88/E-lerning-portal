@@ -34,7 +34,7 @@ public class RegisterController {
         } else {
 
             if (userService.registerNewUser(user)) {
-                return "home";
+                return "_home";
             } else {
 
                 return "register";

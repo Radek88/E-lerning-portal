@@ -1,9 +1,9 @@
 package elerning.Controller.QuizController;
 
 
+import elerning.Model.Categories;
 import elerning.Model.Quiz.*;
 import elerning.Model.User;
-import elerning.Repository.Quiz.ResultsRepository;
 import elerning.Service.Quiz.CategoriesService;
 import elerning.Service.Quiz.QuizService;
 import elerning.Service.Quiz.ResultsServices;
@@ -14,8 +14,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.PostConstruct;
-import javax.mail.internet.InternetAddress;
 import java.util.*;
 
 @RequestMapping("/quiz")
@@ -44,7 +42,7 @@ public class QuizController {
     private String displayQuestion(Model model, Integer questionId) {
         Question question = quizService.findQuestionById(questionId);
         model.addAttribute("question", question);
-        return "displayQuestion";
+        return "quizDisplayQuestion";
     }
 
    /* @PostMapping("/answer")
@@ -62,7 +60,7 @@ public class QuizController {
     private String createQuizForm(Model model) {
         List<Categories> categoriesList = categoriesService.findAll();
         model.addAttribute("categoriesList", categoriesList);
-        return "createQuiz";
+        return "quizCreate";
     }
 
 
@@ -77,7 +75,7 @@ public class QuizController {
         model.addAttribute("quiz", quiz);
         model.addAttribute("question", question);
 
-        return "createQuiz";
+        return "quizCreate";
     }
 
     @PostMapping("/saveQuestionToQuiz")
@@ -97,7 +95,7 @@ public class QuizController {
         Question newQuestion = new Question();
         model.addAttribute("quiz", quiz);
         model.addAttribute("question", newQuestion);
-        return "createQuiz";
+        return "quizCreate";
     }
 
     @PostMapping("/quizCompleted")
@@ -105,7 +103,7 @@ public class QuizController {
                                  Model model) {
         Quiz quiz = quizService.findQuizById(quizId);
         model.addAttribute("completedQuiz", quiz);
-        return "createQuiz";
+        return "quizCreate";
     }
 
     @GetMapping("/listQuiz")
@@ -113,7 +111,7 @@ public class QuizController {
         List<Quiz> quizList = quizService.listAllQuiz();
         model.addAttribute("quizList", quizList);
 
-        return "listQuiz";
+        return "quizList";
     }
 
     //TODO obsłużyć skrajny przypadek z quizem bez żadnego pytania.
@@ -137,7 +135,7 @@ public class QuizController {
 
             model.addAttribute("question", quiz.getQuestionsList().get(0));
 
-            return "displayQuestion";
+            return "quizDisplayQuestion";
 
 
         } else {

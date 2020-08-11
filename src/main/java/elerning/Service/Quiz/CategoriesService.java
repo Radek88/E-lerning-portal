@@ -1,6 +1,6 @@
 package elerning.Service.Quiz;
 
-import elerning.Model.Quiz.Categories;
+import elerning.Model.Categories;
 import java.util.List;
 
 public interface CategoriesService {

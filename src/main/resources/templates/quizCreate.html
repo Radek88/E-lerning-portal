@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html lang="pl" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>eLearning create quiz</title>
-    <div th:replace="header :: header-css"/>
-
-
-</head>
+<head th:replace="header :: header-css"></head>
 <body>
-<div th:replace="header :: header"/>
+<div th:replace="header :: header"></div>
+
+<div th:replace="userAdminPanel :: sidenav"></div>
 
 
 <div class="container" th:if="${completedQuiz == null }">
@@ -28,15 +24,13 @@
                 </select></a>
             </p>
 
-            <a><input type="submit" value="Zapisz Quiz"></a>
+            <p><input type="submit" value="Zapisz Quiz"></p>
         </form>
     </div>
-
-
     <div class="container" th:if="${quiz != null }">
         <p th:text="${quiz.quizName}"></p>
 
-        <form th:action="@{/quiz/saveQuestionToQuiz}" method="post" th:object="${question}">
+        <form class="addQuestion" th:action="@{/quiz/saveQuestionToQuiz}" method="post" th:object="${question}">
             <input hidden name="quizId" th:value="${quiz.id}">
             <p>Podaj treść pytania <textarea rows="5" cols="30" name="questionText" placeholder="Podaj treść pytania"
                                              th:field="*{questionText}">

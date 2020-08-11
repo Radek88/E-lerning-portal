@@ -10,18 +10,18 @@ public class LoginLogoutController {
     @GetMapping("/login")
     private String log(){
 
-        return "login";
+        return "userLogin";
     }
 
     @PostMapping("/login")
     private String login(){
 
-        return "/home";
+        return "_home";
     }
 
     @PostMapping("/logout")
     private String logout(){
-        return "home";
+        return "_home";
     }
 
 
