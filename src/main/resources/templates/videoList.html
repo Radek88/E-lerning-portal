@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pl"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head th:replace="header :: header-css"></head>
+<body>
+<div th:replace="header :: header"/>
+<div th:if="${not #lists.isEmpty(videos)}">
+    <ul class="videoList">
+        <li th:each="video: ${videos}">
+            <div class="videoCard">
+                <div>
+                    <iframe class="iFrameCustom" th:src="${video.link}  "
+                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                </div>
+                <div>
+                    <p class="videoTitle" th:text="${video.title}"></p>
+                    <p style="height: 60%" th:text="${video.description}"></p>
+                    <p>
+                        <a style="color:tomato" class="button"
+                           th:href="@{/quiz/startQuiz(quizId=${video.quiz_id})}">Przejdź do quizu</a>
+                        <a style="font-size: 0.75em"
+                           sec:authorize="hasAuthority('ADMIN')"
+                           th:href="@{/video/deleteVideo/{id}(id=${video.videoId})}">Usuń wideo</a>
+                    </p>
+
+
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+<div th:th:if="${#lists.isEmpty(videos)}">
+    <a>Niestety nie ma żadnego wideo do wyświetlenia</a>
+</div>
+</body>
+</html>
