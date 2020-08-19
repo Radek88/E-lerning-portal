@@ -10,9 +10,9 @@ import java.util.Properties;
 
 @Service
 public class EmailServiceImplementation implements EmailService {
-    @Value("${emailLogin}")
+
     String username;
-    @Value("${emailPassword}")
+
     String password;
 
     @Override
