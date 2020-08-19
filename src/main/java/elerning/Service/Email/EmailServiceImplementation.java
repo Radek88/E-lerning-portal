@@ -13,7 +13,7 @@ public class EmailServiceImplementation implements EmailService {
     @Value("${emailLogin}")
     String username;
     @Value("${emailPassword}")
-    String password = "${{ secrets.EMAIL_PASSWORD }}";
+    String password;
 
     @Override
     public void sendEmail(String senderName, String senderEmail, String subject, String messagePlainText) {
@@ -39,9 +39,9 @@ public class EmailServiceImplementation implements EmailService {
         try {
 
             Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress("elerningproject@gmail.com"));
+            message.setFrom(new InternetAddress(username));
             message.setRecipients(Message.RecipientType.TO,
-                    InternetAddress.parse("elerningproject@gmail.com"));
+                    InternetAddress.parse(username));
             message.setSubject(subject);
             message.setText("Imię nadawcy: "+ senderName+ "\n"
                     +"email nadawcy: "+ senderEmail+ "\n"
