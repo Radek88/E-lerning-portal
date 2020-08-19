@@ -23,8 +23,8 @@ public class VideoController {
     private CategoriesService categoriesService;
 
     @GetMapping("/list")
-    private String showVideos(Model model) {
-        model.addAttribute("videos", videoService.findAll());
+    private String showVideos(Model model, Pageable pageable) {
+        model.addAttribute("videos", videoService.findAll(pageable));
         return "videoList";
     }
 

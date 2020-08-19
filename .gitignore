@@ -43,8 +43,6 @@ out/
 *.iml
 *.ipr
 *.iws
-application.properties
-EmailServiceImplementation.class
 
 ##############################
 ## Eclipse

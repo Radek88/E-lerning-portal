@@ -1,5 +1,6 @@
 package elerning.Service.Email;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import javax.mail.*;
@@ -9,12 +10,16 @@ import java.util.Properties;
 
 @Service
 public class EmailServiceImplementation implements EmailService {
+    @Value("${emailLogin}")
+    String username;
+    @Value("${emailPassword}")
+    String password = "${{ secrets.EMAIL_PASSWORD }}";
 
     @Override
     public void sendEmail(String senderName, String senderEmail, String subject, String messagePlainText) {
 
-        final String username = "elerningproject@gmail.com";
-        final String password = "${{ secrets.EMAIL_PASSWORD }}";
+
+
 
         Properties props = new Properties();
         props.put("mail.smtp.host", "smtp.gmail.com");
